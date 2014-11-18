@@ -1,0 +1,56 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul
+
+Vocab 8
+
+Dear Mr. Kuszmaul,
+	For this vocabulary, I used the book Computer Science, A First Course by Forsythe Keenan, Organick, and Stenberg. I found this book in the Math Rescource Center along with an entire section dedicated to Computer Science. This book is mainly an introduction to Computer Science with a huge portion dedicated to studying algorithms and flow charts. The first couple chapters discuss the individual elements of flow charts, what they mean, and what they signify. Many famous algorithms such as heap sorts are discussed in later chapters. A couple pages are dedicated to Graphs and graph terminology. Interestingly, Forsythe was a Gunn High School graduate. 
+
+
+1 ) graph                  lowest common ancestor
+2 ) graph                  acyclic graph
+3 ) graph                  partition (graph)
+4 ) graph                  leaf (tree (graph))
+5 ) graph                  root (tree (graph))
+6 ) graph                  search (tree)
+7 ) lowest common ancestor acyclic graph
+8 ) lowest common ancestor partition (graph)
+9 ) lowest common ancestor leaf (tree (graph))
+10) lowest common ancestor root (tree (graph))
+11) lowest common ancestor search (tree)
+12) acyclic graph          partition (graph)
+13) acyclic graph          leaf (tree (graph))
+14) acyclic graph          root (tree (graph))
+15) acyclic graph          search (tree)
+16) partition (graph)      leaf (tree (graph))
+17) partition (graph)      root (tree (graph))
+18) partition (graph)      search (tree)
+19) leaf (tree (graph))    root (tree (graph))
+20) leaf (tree (graph))    search (tree)
+21) root (tree (graph))    search (tree)
+
+
+1) On a graph of a binary tree, the lowest common ancestor of two nodes is the lowest node they both have as a parent.
+2) An acyclic graph is one that is directional, but does not contain any cycles between the nodes.
+3) A partition of a graph will restrict the visual representation of that graph.
+4) On a graph of a tree, a leaf will appear as a node with no lines coming from it going to other nodes. It has no children.
+5) One a graph of a tree, a root will appear as a node that only has lines going away from it. It only has children, no parents.
+6) A graph of a search tree would have numbers next to the nodes because they are ordered.
+7) Nodes of an acyclic graph can have a lowest common ancestor because there are no cycles that would get rid of the possibility of a lowest common ancestor.
+8) A nodes lowest common ancestor may change depending on what partition of a graph you are looking at.
+9) A leaf can never be the lowest common ancestor of another node because it has no children.
+10) The root is always a common ancestor of every node on a graph, just not the lowest common ancestor.
+11) Depending on how a search tree is ordered, the lowest common ancestor of any two nodes might be have a number higher than the sum of those two nodes.
+12) An acyclic graph can be created from a cyclic graph with the use of partitions that split up cycles in the nodes.
+13) Introducing a leaf in to a cycle can turn a cyclic graph into an acyclic graph.
+14) Both cyclic and acyclic graphs can have a root.
+15) A search tree does not have to represented as an acyclic graph, it can have cycles.
+16) If you use partitions enough, you can turn a regular node into a leaf.
+17) Also by using enough partitions, it is possible to make a regular node look like the root of a smaller tree.
+18) Searching a single partition of a tree will lead to in incomplete search because a partition does not always accurately represent the entire tree.
+19) Unless there is only one node, the root of a tree is never a leaf.
+20) Like the rest of the nodes in a search tree, even leafs are numbered.
+21) The root of a search tree is not always node #1.
+
+

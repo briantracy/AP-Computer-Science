@@ -1,0 +1,49 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul
+
+
+1 ) Tail recursion                    substitution
+2 ) Tail recursion                    applicative order (of evaluation)
+3 ) Tail recursion                    normal order (of evaluation)
+4 ) Tail recursion                    Virtual memory
+5 ) Tail recursion                    Virtual processor
+6 ) Tail recursion                    Recurrence relation 
+7 ) substitution                      applicative order (of evaluation)
+8 ) substitution                      normal order (of evaluation)
+9 ) substitution                      Virtual memory
+10) substitution                      Virtual processor
+11) substitution                      Recurrence relation 
+12) applicative order (of evaluation) normal order (of evaluation)
+13) applicative order (of evaluation) Virtual memory
+14) applicative order (of evaluation) Virtual processor
+15) applicative order (of evaluation) Recurrence relation 
+16) normal order (of evaluation)      Virtual memory
+17) normal order (of evaluation)      Virtual processor
+18) normal order (of evaluation)      Recurrence relation 
+19) Virtual memory                    Virtual processor
+20) Virtual memory                    Recurrence relation 
+21) Virtual processor                 Recurrence relation 
+
+
+1) When using tail recursion, it is difficult to imagine an algorithm through the substitution model.
+2) When calling a tail recursive function using applicative order, all arguments are evaluated, possibly changing the behavior of the function.
+3) In a tail recursive function, normal order of evaluation will affect the order in the tail calls are executed.
+4) If a tail recursive function does not have a base case, it will undergo infinite recursion and chew up all virtual memory allocated for the program.
+5) Tail recursion can be optimized so that a virtual processor never knows the difference between a function that was recursive and one that is iterative.
+6) One recurrence relation, the fibonacci series, can be implemented using tail recursion.
+7) When using applicative order, substitution occurs on all arguments.
+8) When using normal order, substitution occurs in a left to right order, not always evaluating every argument.
+9) When substitution occurs, virtual memory is altered.
+10) Substitition is the job of either the compiler or interpreter, not a virtual processor.
+11) In a recurrence relation, known values of the sequence can be substituted for constants.
+12) Applicative order differs from normal order in the way that arguments are evaluated.
+13) Applicative order uses more virtual memory as all arguments are evaluated.
+14) Applicative order will affect what the virtual processor will have to do because a change in what is evaluated will yield different machine code.
+15) When implementing a recurrence relation, a programmer must know whether or not applicative order is being used.
+16) Normal order can use less virtual memory as unevaluated arguments do not take up space.
+17) Normal order can save the virtual processor cycles by not evaluating unnecessary expressions.
+18) Normal order may not be the best for recurrence relation implementations as it will not evaluate unnecessary function calls.
+19) Virtual memory and virtual processors are part of virtual machines.
+20) Recurrence relations can use up all virtual memory if the stack overflows.
+21) A virtual processor can be indefinitely busy if an implementation of a recurrence relation goes into infinite recursion.

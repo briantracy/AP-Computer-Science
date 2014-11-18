@@ -1,0 +1,23 @@
+Brian Tracy
+AP Computer Science 
+Kuszmaul
+
+HiVolts
+
+	With HiVolts, we were taken back all the way back to the days of mainframe computing and ASCII Graphics. Also known as The Seventies, this era was the spurred the phoemomonon of computer games, one that we still see heavily present in our society today.
+
+	To recreate this game, we were given a set of comprehensive rules and an image. Armed with these two pieces of information, it was our job to provoke nostalgia only attained by playing old computer games. One of the requirements was to use modern graphics. While many people took this to mean abstract shapes, I simply put a modern spin on old graphics. By utilizing the modern Swing framework, but incorporating the sprites from the original game, my implementation has a "refreshingly old" look and feel. 
+
+	The two main parts of this application were the user interface and the logic behind the game. Both presented their own challenges. The biggest challenge for the user interface aspect was providing a completely immersive experience. I saw other people using small windows and I thought that this defeated the purpose of using modern graphics. For my implementation, I chose to make the game full screen. One challenge of this was centering the game board and sizing it to fit the maximum possible square area on the screen. I was amazed at how well the orignial sprites scaled, keeping their crisp edges even at 5 to 10 times their original size. The second part of the application was the game logic. This was by far the more difficult part of the game as the rules that dictated how the entities moved were very complicated. I broke this approach down into two parts. 
+		1) Moving the Player
+		2) Mocing the Mhos
+
+	This first part was easy enough. The player could go anywhere he chooses provided he does not land on a fence or Mho. Once the player moved though, the Mhos could retaliate, and this is where things got tricky. The following sequence of critical steps in deciding where each Mho was to move lead to some very difficult implementation decisions. 
+
+	Although the Mho logic was the most difficult part of this project, it was the most fun. Thinking like a Mho provided a very tricky problem solving opportunity.
+
+	I let my mom play the game a couple times in order to obtain some feedback on how I could improve it. Her only complaints were that moving the player was very difficult. Also as an erogomic specialist, she had to add that contorting the hand into the necessary positions could be dangerous after long hours of play. Unfortunately nothing could be done about these awkward key strokes as they are declared in the specification.
+
+	One problem I had with the specification was the Turn Indicator. This part of the interface was supposed to indicate the player whether or not it was his turn. At first I did not agree with this decision, as it would simply distract the user from the game. My reasoning was that "it was always the players turn", and while this may be true, between games offers up a bit of a gray area. 
+
+	

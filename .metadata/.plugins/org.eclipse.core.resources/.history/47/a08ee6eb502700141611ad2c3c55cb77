@@ -1,0 +1,19 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.*;
+
+public class Main 
+{
+	private ArrayList<WordPair> words;
+	
+	public static void main(String[] args) 
+	{
+		System.out.println(numberOfWords());
+	}
+	
+	private int numberOfWords()
+	{
+		Scanner input = new Scanner(System.in);
+		return Integer.parseInt(input.nextLine());
+	}
+}

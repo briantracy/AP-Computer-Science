@@ -1,0 +1,53 @@
+Brian Tracy
+Kuszmaul
+AP Computer Science
+
+Vocabulary 2
+
+1 ) Exception      Iterator
+2 ) Exception      Branch
+3 ) Exception      Pointer
+4 ) Exception      Tree
+5 ) Exception      Sine_Function
+6 ) Exception      Complex_Number
+7 ) Iterator       Branch
+8 ) Iterator       Pointer
+9 ) Iterator       Tree
+10) Iterator       Sine_Function
+11) Iterator       Complex_Number
+12) Branch         Pointer
+13) Branch         Tree
+14) Branch         Sine_Function
+15) Branch         Complex_Number
+16) Pointer        Tree
+17) Pointer        Sine_Function
+18) Pointer        Complex_Number
+19) Tree           Sine_Function
+20) Tree           Complex_Number
+21) Sine_Function  Complex_Number
+
+
+1) While iterating using a collection's iterator, you can cause an exception by calling remove() twice before calling next().
+2) An exception will cause a program to branch either to the appropriate try catch block, or to terminate.
+3) A NullPointerException is thrown when one tries to interact with a null reference.
+4) Trying to access the nodes of a null tree will cause an exception.
+5) When passed the correct type (double), Java's sine function (Math.sin) will never throw an exception.
+6) If a Complex Number class was implemented, a likely strategy would be to throw an exception when its denominator is zero.
+7) While the use of an iterator leads to straightforward loops, a branch can take the program execution to unpredictable places.
+8) A pointer can be used as a iterator for an array by incrementing its memory location to access successive elements in the array.
+9) An iterator can be used to traverse an entire tree.
+10) One could store the points of a graph by using an iterator to assign each element of an array to the value return by a sine function.
+11) A complex number class would not have to implement the Iterator interface because it is not a collection.
+12) Detecting a null pointer early and branching out of a function can save you from runtime errors later by preventing the dereferencing of the null pointer.
+13) While branch instructions are normally seen in lower level code such as assembly language, trees are normally seen in higher level code such as a Java class or a complex data structure.
+14) A branch occurs in Java's sine function when checking if the argument passed is NaN or 0.
+15) Adding and subtracting complex numbers may cause the program to branch depending on whether or not any exceptions are thrown in the process.
+16) As a tree can be a large data structure, passing a pointer to a tree as apposed to the tree itself to a function can decrease overhead.
+17) Java's sine function does not return a pointer, but a scalar type (double).
+18) In a linked list of complex numbers, each number would hold a pointer to the next.
+19) A tree constructed solely of values from a sine function would be useful in trigonometry to create shapes.
+20) One use case for a tree would be to have its nodes represented by complex numbers.
+21) A useful method of a complex number class would be a sine function, which would return the sine of the complex number.
+
+
+

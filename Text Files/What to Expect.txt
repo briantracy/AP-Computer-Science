@@ -1,0 +1,5 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul 2
+
+	This year, my main goal is to prepare myself for the AP Computer Science exam. I hope that this class aids me in that goal by giving me a full review of Java, along with teaching me many new things. I want to learn about the new features of Java 8 such as lamdas while increasing my basic understanding of OOP. Most of all, I want to get out of this class a fun environment where I can follow my passion of programming. As someone that spends most of my time doing iOS Development, the thing I worry about most is the transition from Objective-C to Java. While both languages are Object Oriented, many syntactical differences exist between them, along with differences in how memory is managed. One of my biggest challenges will to be to get over these differences and get into a Java state of mind. In conclusion, I hope to have a great year in Computer Science and learn everything I can before the AP test.

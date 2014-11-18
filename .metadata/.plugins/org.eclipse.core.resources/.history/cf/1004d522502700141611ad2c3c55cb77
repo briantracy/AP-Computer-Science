@@ -1,0 +1,18 @@
+
+public class WordPair {
+	private String a;
+	private String b;
+	
+	public WordPair(String a, String b)
+	{
+		this.a = a;
+		this.b = b;
+	}
+	
+	public boolean equals(Object other)
+	{
+		if (other instanceof WordPair) return false;
+		
+		
+	}
+}

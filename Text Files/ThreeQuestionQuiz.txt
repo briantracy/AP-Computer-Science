@@ -1,0 +1,50 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul
+
+
++----------------------------+
+| A Three Question Java Quiz |
++----------------------------+
+
+
+1) What will the array `arr` contain after the following code executes?
+
+		private static void addOneToElement(int arrayElem) {
+			arrayElem++;
+		}
+
+		public static void main(String[] args) {
+			int[] arr = new int[] { 1, 2, 3 };
+			for (int i = 0; i < arr.length; i++) {
+				addOneToElement(arr[i]);
+			}
+		}
+
+a)	[ 2, 3, 4 ]
+b)	[ 0, 0, 0 ]
+c)	[ 1, 2, 3 ]
+d)	[ 0, 1, 2 ]
+
+
+2) What are the three methods declared by the Iterator interface?
+	1._____________
+	2._____________
+	3._____________
+
+3) What are the name of the arguments (String[] args) passed into the main function?
+	
+	public static void main(String[] args) {}
+	                        ^^^^^^^^^^^^^
+
+a) Starting variables
+b) Command Line Arguments
+c) Initial vars
+d) Environment Values
+
+
+Answers
+1) C. Primitives are passed by value, not reference, so a copy is made when they are used as arguments. The array is not modified.
+2) hasNext(), next(), remove()
+3) B. Command line arguments are passed to the program through the main method.
+
