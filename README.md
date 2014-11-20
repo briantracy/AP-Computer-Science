@@ -8,5 +8,4 @@ Files for AP Computer Science at Palo Alto High School
   Unauthorized copying of these files, via any medium is strictly prohibited<br>
   Proprietary and confidential<br>
   Written By Brian Tracy <brian.tracy33@gmail.com> on November 18, 2014<br>
- 
-  Please ignore the classic CompSci101 style comments. These are virtually the only source of points in this class and represent ~ 80 of all grades.
+
