@@ -15,6 +15,8 @@ public class Main
         return "Here I am in toString() of a Main object";
     }
 
+
+
     public static void main(String[] args)
     {
 
@@ -26,6 +28,9 @@ public class Main
 
         /** Test the equalsMethod that all objects have, this time using some parameters */
         testEquals();
+
+
+
 
     }
 

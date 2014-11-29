@@ -1,0 +1,49 @@
+Brian Tracy
+AP Computer Science 
+Kuszmaul
+
+Vocabulary 13
+
+1 ) Union                Intersection
+2 ) Union                Set Difference
+3 ) Union                Limit
+4 ) Union                L’hopital's Rule
+5 ) Union                Standard Deviation
+6 ) Union                Binomial Coefficient
+7 ) Intersection         Set Difference
+8 ) Intersection         Limit
+9 ) Intersection         L’hopital's Rule
+10) Intersection         Standard Deviation
+11) Intersection         Binomial Coefficient
+12) Set Difference       Limit
+13) Set Difference       L’hopital's Rule
+14) Set Difference       Standard Deviation
+15) Set Difference       Binomial Coefficient
+16) Limit                L’hopital's Rule
+17) Limit                Standard Deviation
+18) Limit                Binomial Coefficient
+19) L’hopital's Rule     Standard Deviation
+20) L’hopital's Rule     Binomial Coefficient
+21) Standard Deviation   Binomial Coefficient
+
+1) A union of two sets contains every element found in either set A or set B while an intersection of two sets contains every element found in both set A and set B.
+2) 
+3)
+4)
+5)
+6)
+7)
+8)
+9)
+10)
+11)
+12)
+13)
+14)
+15)
+16)
+17)
+18)
+19)
+20)
+21)

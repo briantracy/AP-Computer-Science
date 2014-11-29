@@ -1,7 +1,7 @@
-Abstract class
-O notation
-Search
-Insertion
-Deletion
-List
-Set
+Union
+Intersection
+Set Difference
+Limit
+L’hopital's Rule
+Standard Deviation
+Binomial Coefficient

@@ -1,0 +1,52 @@
+Brian Tracy
+AP Computer Science A
+Kuszmaul
+
+Source: http://javadevelopersenior.com/blog/wp-content/uploads/2013/05/java_collections.pdf
+
+Hash Set
+Class/Interface/Abstract Class? Generic Class
+Search Time: O(1)
+Insertion Time: O(1)
+Deletion Time: O(1)
+
+
+Map
+Class/Interface/Abstract Class? Generic Interface
+Search Time: O(1)
+Insertion Time: O(1)
+Deletion Time: O(1)
+
+Note: Tree Map is slower
+
+
+HashMap
+Class/Interface/Abstract Class? Generic Class
+Search Time: O(1)
+Insertion Time: O(1)
+Deletion Time: O(1)
+
+
+Tree Map 
+Class/Interface/Abstract Class? Generic Class
+Search Time: O(log n)
+Insertion Time: O(log n)
+Deletion Time: O(log n)
+
+Queue
+Class/Interface/Abstract Class? Generic Interface
+Search Time: O(1) to O(log n)
+Insertion Time: O(1)
+Deletion Time: O(1)
+
+Stack - Similar to Queue in times
+Class/Interface/Abstract Class? Generic Class
+Search Time: O() - can't really do this . Peek is O(1)
+Insertion Time: O(1)
+Deletion Time: O(1)
+
+Linked List
+Class/Interface/Abstract Class? Generic Class
+Search Time: O(1)
+Insertion Time: O(1)
+Deletion Time: O(1)

@@ -53,12 +53,16 @@ public class Main
         if (args.length > 0) {
             try {
                 printMatches(linesFromFile(args[0]));
-                boxtext("Your are very welcome,\nSir");
             } catch (FileNotFoundException ex) {
                 System.out.println("File Passed was does not exist");
                 ex.printStackTrace();
                 throw ex;
             }
+
+            for (int i  = 1; i < 22; i++) {
+                System.out.println(i + ")");
+            }
+
             return;
 
 
