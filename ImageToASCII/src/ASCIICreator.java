@@ -1,6 +1,8 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorConvertOp;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +12,7 @@ public class ASCIICreator {
 
     private File input, output;
 
-    private final String ASCII = "@%#*+=-:. "; //"@%#*+=-:. " +
+    private final String ASCII = "@%#*+=-:. ";
 
     public ASCIICreator(File input, File output)
     {
@@ -26,7 +28,11 @@ public class ASCIICreator {
         PrintWriter printWriter  = null;
         try {
             BufferedImage in = ImageIO.read(input);
-            bufferedImage = in;//new BufferedImage(in.getWidth(), in.getHeight(), BufferedImage.TYPE_INT_ARGB);
+
+
+
+
+            bufferedImage = in;
 
 
             printWriter = new PrintWriter(output);
@@ -61,10 +67,8 @@ public class ASCIICreator {
                     max = luminosities[x][y];
                 }
 
-                System.out.println("rgb = " + Arrays.toString(pixelData[x][y]) + " lumin = " + luminosities[x][y]);
             }
         }
-        System.out.println(max);
 
 
 
@@ -90,7 +94,6 @@ public class ASCIICreator {
         double size = (255.0 / len);
 
         int bucket = (int)(lum / size);
-        System.out.println(ASCII.charAt(bucket));
         return ASCII.charAt(bucket);
     }
 

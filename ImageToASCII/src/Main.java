@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 
 public class Main {
@@ -18,9 +19,15 @@ public class Main {
         System.out.println("input = " + input);
         System.out.println("output = " + output);
 
-        ASCIICreator asciiCreator = new ASCIICreator(input, output);
+       ASCIICreator asciiCreator = new ASCIICreator(input, output);
 
         asciiCreator.renderImage();
 
+
+
+        JEditorPane jEditorPane = new JEditorPane();
+        jEditorPane.setSize(new Dimension(100, 100));
+        jEditorPane.setVisible(true);
+        jEditorPane.setText("Hello World");
     }
 }
