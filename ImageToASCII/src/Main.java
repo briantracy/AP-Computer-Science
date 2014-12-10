@@ -19,7 +19,7 @@ public class Main {
         System.out.println("input = " + input);
         System.out.println("output = " + output);
 
-       ASCIICreator asciiCreator = new ASCIICreator(input, output);
+        ASCIICreator asciiCreator = new ASCIICreator(input, output);
 
         asciiCreator.renderImage();
 

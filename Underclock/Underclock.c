@@ -18,18 +18,6 @@ int main(int argc, const char * argv[])
     
     bubble_sort(buff, length);
     
-    
-    
-    
-    
-    for (unsigned long long idx = 0; idx < length; idx++)
-    {
-        printf("%f\n", buff[idx]);
-    }
-    
-    
-    
-    
     return 0;
 }
 
@@ -49,4 +37,6 @@ void bubble_sort(float * buff, unsigned long long size)
         }
     }
 }
+
+
 
