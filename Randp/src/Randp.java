@@ -77,6 +77,4 @@ public class Randp
 
         System.out.println("No More Random Numbers");
     }
-
-
 }
