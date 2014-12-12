@@ -6,7 +6,17 @@ public class BSTNode<T extends Comparable<T>>
     private BSTNode<T> left, right;
 
 
+    public T getDatum() {
+        return datum;
+    }
 
+    public BSTNode<T> getLeft() {
+        return left;
+    }
+
+    public BSTNode<T> getRight() {
+        return right;
+    }
 
     public BSTNode(T datum)
     {

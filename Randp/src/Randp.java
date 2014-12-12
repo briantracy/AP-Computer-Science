@@ -26,7 +26,7 @@ public class Randp
     public Randp(int upperBoundInclusive)
     {
         numbers = new ArrayList<Integer>(upperBoundInclusive);
-        seed(upperBoundInclusive);
+        seed(upperBoundInclusive); // we could have just put the `seed` code in the constructor...
     }
 
 
