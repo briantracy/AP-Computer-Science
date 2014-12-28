@@ -1,5 +1,4 @@
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
+
 
 public class Complex {
 
@@ -68,7 +67,7 @@ public class Complex {
 
     private int escapeIters_()
     {
-        final int kMaxIters = 100;
+        final int kMaxIters = 255;
         int iters = 1;
         Complex z = new Complex(0,0);
 

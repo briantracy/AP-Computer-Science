@@ -1,21 +1,25 @@
 import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        String[] s = new String[]{ "hello", "goodbye", "hello" };
 
-        Bag b = new Bag(new Object[]{"Hello", "Hello", "Goodbye"});
+        Bag<String> b = new Bag<String>(s);
 
-        b.addMember(5);
-        b.addMember(5);
-        b.addMember(Arrays.toString(new Integer[]{1,2,3}));
+        b.add("hello", "goodbye");
 
 
 
         System.out.println(b);
+
+
+
+
 
     }
 }

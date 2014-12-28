@@ -1,66 +1,39 @@
 import java.util.HashMap;
 
-public class Bag {
+public class Bag<T> {
 
-    private HashMap<Object, Integer> members;
-
-    // lets lay it on you with the constructors
+    private HashMap<T, Integer> members;
 
     public Bag() {
-        members = new HashMap<Object, Integer>();
+        members = new HashMap<T, Integer>();
     }
 
-    public Bag(int count) {
-        members = new HashMap<Object, Integer>(count);
+    public Bag(T... ts) {
+        this();
+        add(ts);
     }
 
-
-    public Bag(Object[] array) {
-        this(array.length);
-
-        for (Object item : array) {
-            addMember(item);
+    public void add(T... ts) {
+        for (T t : ts) {
+            add(t);
         }
     }
 
+    public boolean add(T t) {
+        Integer val = members.get(t);
+        return members.put(t, val == null ? 1 : val + 1) != null;
+    }
 
+    public int size() {
+        return members.size();
+    }
 
-    /**
-     *
-     * @param i The Object to be added to the Bag
-     * @return Returns true if the object is already in the bag.
-     */
-    public boolean addMember(Object i) {
+    public String toString() {
+        StringBuilder b = new StringBuilder("{\n");
 
-        if (members.containsKey(i)) {
-            /**
-             * This Object already exists in the bag, increase its hit count
-             */
-
-            members.put(i, members.get(i) + 1);
-            return true;
+        for (T t : members.keySet()) {
+            b.append(String.format("\t%s : %s\n", t, members.get(t)));
         }
-
-        members.put(i, 1);
-        return false;
+        return b.append("}").toString();
     }
-
-    public void addMembersFromBag(Bag other) {
-
-    }
-
-    public String toString()
-    {
-        StringBuilder builder = new StringBuilder();
-        builder.append("(\n");
-
-        for (Object iter : members.keySet()) {
-            builder.append("\t{ " + iter.toString() + " : " + members.get(iter) + " }\n");
-        }
-
-        builder.append(")\n");
-        return builder.toString();
-    }
-
 }
-
