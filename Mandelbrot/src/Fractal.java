@@ -50,7 +50,9 @@ public class Fractal extends JFrame
         {
             for (int y = 0; y < getHeight(); y += PIXEL_SIZE)
             {
-                int iters = window.complexForPoint(x, y).escapeIters();
+
+                Complex z = window.complexForPoint(x,y);
+                int iters = z.escapeIters();
 
                 g.setColor(colorForEscapeIters(iters));
 
@@ -62,7 +64,12 @@ public class Fractal extends JFrame
 
     }
 
+    private Color colorForComplexAndIters(Complex z, int n)
+    {
+        double smooth = n + 1 - Math.log(Math.log(z.distance())) / Math.log(2.0);
 
+        return new Color(Color.HSBtoRGB(0.95f + (float)(10 * smooth), 0.6f, 1.0f));
+    }
 
 
     private Color colorForEscapeIters(int escapeIters)
