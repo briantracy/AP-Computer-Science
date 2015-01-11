@@ -1,11 +1,14 @@
-
+import java.lang.reflect.Array;
 import java.util.*;
 
-
+/**
+ * Entry point to the application. Runs some test cases on my implementation of the PriorityQueue
+ *
+ *  Note: I use the terms "real" and "fake" queues to describe the standard library queue and my queue respectively.
+ */
 public class Main
 {
     private static final CustomComparator<String> GLOBAL_COMPARATOR = new CustomComparator<String>();
-
 
     /**
      *  <summary>
@@ -25,62 +28,40 @@ public class Main
         }
 
         public void reset() { comparisons = 0; }
-
     }
 
-    public static void main(String[] args)
-    {
- //       runAccuracyTest();
-//        int iters = 100;
-//
-//        ArrayList<Long> times = new ArrayList<Long>();
-//
-//        for (; iters <= 100000; iters *= 10) {
-//            times.add(runTest(iters));
-//            System.out.println("=======");
+    /**
+     *  Test cases for both accuracy and speed.
+     * @param args Command line arguments
+     */
+    public static void main(String[] args) {
+        PriorityQueue<String> str = new PriorityQueue<String>(GLOBAL_COMPARATOR);
+        str.add("hello");
+        str.add("hello");
+        str.add("bye");
+        str.add("alpha");
+        str.add("alpha");
+        str.delete("alpha");
+
+
+//        while (!str.isEmpty()) {
+//            System.out.println(str.poll());
 //        }
-//
-//        System.out.println(times);
-//        System.out.println("terminated");
+        System.out.println(str.peek());
+
 
         runAccuracyTest();
         runEfficiencyTest();
-
     }
 
-    private static long runTest(int iters)
-    {
-        GLOBAL_COMPARATOR.reset();
-        PriorityQueue<String> queue = new PriorityQueue<String>(GLOBAL_COMPARATOR);
-
-        long start = System.currentTimeMillis();
-
-        for (int i = 0; i < iters; i++) {
-            queue.add(randomString());
-        }
-
-        int global = 0;
-
-        for (int i = 0; i < 10; i++) {
-            GLOBAL_COMPARATOR.reset();
-
-
-            String rnd = randomString();
-            queue.add(rnd);
-            System.out.println("comparisons this add/removal " + GLOBAL_COMPARATOR.comparisons );
-            global += GLOBAL_COMPARATOR.comparisons;
-
-            queue.delete(rnd);
-
-        }
-
-        long elapsed = System.currentTimeMillis() - start;
-        //System.out.println("Test case with " + iters + " iterations took " + elapsed + "ms" + " comparisons made " + GLOBAL_COMPARATOR.comparisons);
-
-
-        return global;
-    }
-
+    /**
+     * <summary>
+     *     This method leverages the UUID class of the standard library to create complex random strings. Theses are perfect
+     *     for test cases because they are long, thus testing the comparison algorithms, and they are unique. This uniqueness is
+     *     used to verify that values in the test queues are precise and not simply duplicates.
+     * </summary>
+     * @return A random string
+     */
     private static String randomString()
     {
         UUID uuid = UUID.randomUUID();
@@ -104,22 +85,29 @@ public class Main
     {
         createTitle("Running Accuracy Test");
         java.util.PriorityQueue <String> real = new java.util.PriorityQueue<String>(1, GLOBAL_COMPARATOR);
-        PriorityQueue           <String> fake = new PriorityQueue<String>(GLOBAL_COMPARATOR);
+        NonDuplicatingPriorityQueue<String> nondup = new NonDuplicatingPriorityQueue<String>(GLOBAL_COMPARATOR);
+        PriorityQueue<String>   fake = new PriorityQueue<String>(GLOBAL_COMPARATOR);
 
         for (int i = 0; i < 10; i++) {
             String randomString = randomString();
             real.add(randomString);
+            nondup.add(randomString);
             fake.add(randomString);
         }
 
-        System.out.print("Real Priority Queue: ");
+        System.out.print("Real   Priority Queue: ");
         while (!real.isEmpty()) {
             System.out.print(real.poll() + ", ");
         }
 
-        System.out.print("\nFake Priority Queue: ");
+        System.out.print("\nFake   Priority Queue: ");
         while (!fake.isEmpty()) {
             System.out.print(fake.poll() + ", ");
+        }
+
+        System.out.print("\nNonDup Priority Queue: ");
+        while (!nondup.isEmpty()) {
+            System.out.print(nondup.poll() + ", ");
         }
         System.out.println();
         createTitle("Ending  Accuracy Test");
@@ -171,6 +159,9 @@ public class Main
 
         int compoundComparisons = 0;
 
+        /**
+         * Insert an element into the queue and record how many comparisons were made. Lather Rinse Repeat
+         */
         for (int i = 0; i < 10; i++) {
             GLOBAL_COMPARATOR.reset();
 
@@ -184,7 +175,6 @@ public class Main
         }
         return compoundComparisons;
     }
-
 
     /**
      * <summary>
@@ -201,3 +191,5 @@ public class Main
         System.out.println();
     }
 }
+
+
