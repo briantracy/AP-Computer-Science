@@ -35,21 +35,7 @@ public class Main
      * @param args Command line arguments
      */
     public static void main(String[] args) {
-        PriorityQueue<String> str = new PriorityQueue<String>(GLOBAL_COMPARATOR);
-        str.add("hello");
-        str.add("hello");
-        str.add("bye");
-        str.add("alpha");
-        str.add("alpha");
-        str.delete("alpha");
-
-
-//        while (!str.isEmpty()) {
-//            System.out.println(str.poll());
-//        }
-        System.out.println(str.peek());
-
-
+        test();
         runAccuracyTest();
         runEfficiencyTest();
     }
@@ -189,6 +175,27 @@ public class Main
         System.out.println("\n\t" + str);
         for (int i = 0; i < length; i++) { System.out.print("="); }
         System.out.println();
+    }
+
+    private static void test()
+    {
+        Comparator<String> com = new Comparator<String>() {
+            @Override
+            public int compare(String s, String t1) {
+                return - s.compareTo(t1);
+            }
+        };
+
+        java.util.PriorityQueue<String> pq = new java.util.PriorityQueue<String>(1, com);
+
+        pq.add("zz");
+        pq.add("bbb");
+        pq.add("ccc");
+
+
+        while (!pq.isEmpty()    ) {
+            System.out.println(pq.poll());
+        }
     }
 }
 
