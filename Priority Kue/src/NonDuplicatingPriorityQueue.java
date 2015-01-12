@@ -3,11 +3,13 @@ import java.util.*;
  *
  *  This is a fast priority queue. Unfortunately, It does not handle duplicates. All methods are O(log n) or O(1).
  *
- *
+ *  Each method has a description of what it does and how it is accomplished along with the time complexity of that method
+ *  For more information see README.txt
  */
 public class NonDuplicatingPriorityQueue<T>
 {
     private final NavigableSet<T> set;
+    public NavigableSet<T> getSet() { return set; }
     private boolean isReveresed = false;
 
     public NonDuplicatingPriorityQueue(Comparator<T> comparator)
@@ -163,18 +165,37 @@ public class NonDuplicatingPriorityQueue<T>
      *  <summary>
      *      This method will reverse the comparator of the queue.
      *
-     *      This method is extremely effecient because of the way I have organized the state of the queue. At any point,
+     *      This method is extremely efficient because of the way I have organized the state of the queue. At any point,
      *      the queue is in a reversed state, or is in a regular state. (See `isReversed` instance variable)
+     *
+     *      Regardless of the state of the queue, the physical comparator is never changed. Once assingned in the constructor,
+     *      it cannot be mutated. The trick to reversing the comparator is in the implementation of poll.
+     *
+     *      The state of the comparator is only ever brought into question when items are being removed from the queue so only
+     *      then do we have to check the value of `isReversed`.
      *
      *  </summary>
      *  <complexity>
      *      Constant - no comparisons are made, simply toggling a variable
      *  </complexity>
      *
-     * @return
+     * @return The value of the new comparator
      */
     public boolean reverseComparator()
     {
         return (isReveresed = !isReveresed);
+    }
+
+    /**
+     *  This is the algorithm to merge two queues. It relies on the tree merging algorithms of TreeSet.
+     *  <complexity>
+     *     Like most Tree Merging algorithms - Something not that great. 
+     *  </complexity>
+     * @param other
+     */
+
+    public void merge(NonDuplicatingPriorityQueue<T> other)
+    {
+        set.addAll(other.getSet());
     }
 }
