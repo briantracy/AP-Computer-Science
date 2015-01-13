@@ -6,7 +6,8 @@ import java.util.*;
  *  to the original object. In most cases, all algorithms will perform in O(log n) time with the exception of the cases where
  *  duplicates are found.
  *
- *
+ *  Each method has a description of what it does and how it is accomplished along with the time complexity of that method
+ *  For more information see README.txt
  *
  */
 
@@ -27,7 +28,7 @@ public class PriorityQueue<T>
     /**
      * This type maps [<#Object#> : <#DuplicatesOfObject#>]
      */
-    private final NavigableMap<T, FastList<T>> map;
+    private NavigableMap<T, FastList<T>> map;
     private boolean isReveresed = false;
 
     /**
@@ -244,10 +245,40 @@ public class PriorityQueue<T>
      *
      * @return The value of the new comparator
      */
-
     public boolean reverseComparator()
     {
         return (isReveresed = !isReveresed);
 
+    }
+
+    /**
+     * <summary>
+     *      This method clears the priority queue by simply reassigning the instance. With modern memory management techniques
+     *      used by GC's , this is efficient and safe. There are no tree-manipulations to bump up the Big O time.
+     * </summary>
+     * <complexity>
+     *     Constant - simply reassign the instance
+     * </complexity>
+     */
+    public void clear()
+    {
+        Comparator<? super T> myComparator = map.comparator();
+        map = new TreeMap<T, FastList<T>>(myComparator);
+    }
+
+    /**
+     *  <summary>
+     *      This method determines whether or not this queue contains the given key. This is done by simply checking if
+     *      the underlying map has that key.
+     *  </summary>
+     *  <complexity>
+     *      O(log n) - TreeMap.containsKey
+     *  </complexity>
+     * @param t The object to test
+     * @return Whether or not   `t` is in the queue
+     */
+    public boolean contains(T t)
+    {
+        return map.containsKey(t);
     }
 }

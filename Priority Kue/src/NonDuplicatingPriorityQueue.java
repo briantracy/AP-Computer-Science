@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class NonDuplicatingPriorityQueue<T>
 {
-    private final NavigableSet<T> set;
+    private NavigableSet<T> set;
     public NavigableSet<T> getSet() { return set; }
     private boolean isReveresed = false;
 
@@ -190,12 +190,43 @@ public class NonDuplicatingPriorityQueue<T>
      *  This is the algorithm to merge two queues. It relies on the tree merging algorithms of TreeSet.
      *  <complexity>
      *     Like most Tree Merging algorithms - Something not that great.
+     *
      *  </complexity>
      * @param other
      */
-
     public void merge(NonDuplicatingPriorityQueue<T> other)
     {
         set.addAll(other.getSet());
+    }
+
+    /**
+     * <summary>
+     *      This method clears the priority queue by simply reassigning the instance. With modern memory management techniques
+     *      used by GC's , this is efficient and safe. There are no tree-manipulations to bump up the Big O time.
+     * </summary>
+     * <complexity>
+     *     Constant - simply reassign the instance
+     * </complexity>
+     */
+    public void clear()
+    {
+        Comparator<? super T> myComparator = set.comparator();
+        set = new TreeSet<T>(myComparator);
+    }
+
+    /**
+     *  <summary>
+     *      This method determines whether or not this queue contains the given key. This is done by simply checking if
+     *      the underlying set has that object.
+     *  </summary>
+     *  <complexity>
+     *      O(log n) - TreeSet.contains
+     *  </complexity>
+     * @param t The object to test
+     * @return Whether or not   `t` is in the queue
+     */
+    public boolean contains(T t)
+    {
+        return set.contains(t);
     }
 }

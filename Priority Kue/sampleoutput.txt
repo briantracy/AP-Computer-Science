@@ -1,0 +1,20 @@
+=============================
+	Running Accuracy Test
+=============================
+Real   Priority Queue: 34f80dec-791c-4268-a945-76206a2dee03, 36820886-273f-4142-a67b-f52213b27298, 54392857-f161-4e31-b955-1403b7a57681, 5ceef151-a89b-4497-bcb3-ec047dbf4bc7, 664c1669-bc6c-4b48-b6af-c556625a9f27, a895020f-7135-4256-a0af-c34ee34ed8bf, b91c8ab5-05b7-4eb6-b543-eb7a255c0c0e, dfcbc3ce-349b-4308-8923-5808fb80832e, ee6cedea-bcd1-4724-9199-39355ba54046, f9dc5087-5d7b-4a34-9010-f68924fb3b36, 
+Fake   Priority Queue: 34f80dec-791c-4268-a945-76206a2dee03, 36820886-273f-4142-a67b-f52213b27298, 54392857-f161-4e31-b955-1403b7a57681, 5ceef151-a89b-4497-bcb3-ec047dbf4bc7, 664c1669-bc6c-4b48-b6af-c556625a9f27, a895020f-7135-4256-a0af-c34ee34ed8bf, b91c8ab5-05b7-4eb6-b543-eb7a255c0c0e, dfcbc3ce-349b-4308-8923-5808fb80832e, ee6cedea-bcd1-4724-9199-39355ba54046, f9dc5087-5d7b-4a34-9010-f68924fb3b36, 
+NonDup Priority Queue: 34f80dec-791c-4268-a945-76206a2dee03, 36820886-273f-4142-a67b-f52213b27298, 54392857-f161-4e31-b955-1403b7a57681, 5ceef151-a89b-4497-bcb3-ec047dbf4bc7, 664c1669-bc6c-4b48-b6af-c556625a9f27, a895020f-7135-4256-a0af-c34ee34ed8bf, b91c8ab5-05b7-4eb6-b543-eb7a255c0c0e, dfcbc3ce-349b-4308-8923-5808fb80832e, ee6cedea-bcd1-4724-9199-39355ba54046, f9dc5087-5d7b-4a34-9010-f68924fb3b36, 
+=============================
+	Ending  Accuracy Test
+=============================
+===============================
+	Running Efficiency Test
+===============================
+A queue of size 100 makes 138 comparisons to insert. (100, 138)
+A queue of size 1000 makes 202 comparisons to insert. (1000, 202)
+A queue of size 10000 makes 274 comparisons to insert. (10000, 274)
+A queue of size 100000 makes 330 comparisons to insert. (100000, 330)
+See the attached graphs for a visualization of this data
+===============================
+	Ending  Efficiency Test
+===============================

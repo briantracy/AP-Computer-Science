@@ -35,7 +35,6 @@ public class Main
      * @param args Command line arguments
      */
     public static void main(String[] args) {
-        test();
         runAccuracyTest();
         runEfficiencyTest();
     }
@@ -116,8 +115,9 @@ public class Main
         for (int i = 100; i <= 100000; i *= 10) {
             int comparisons = performEfficiencyMeasurementAtQueueSize(i);
 
-            System.out.printf("A tree of size %d makes %d comparisons to insert. (%d, %d)\n", i, comparisons, i, comparisons);
+            System.out.printf("A queue of size %d makes %d comparisons to insert. (%d, %d)\n", i, comparisons, i, comparisons);
         }
+        System.out.println("See the attached graphs for a visualization of this data");
 
         createTitle("Ending  Efficiency Test");
     }

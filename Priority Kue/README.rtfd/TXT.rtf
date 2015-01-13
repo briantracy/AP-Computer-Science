@@ -10,6 +10,8 @@ Kuszmaul\
 \
 The Priority Queue\
 \
+Notes: There are quite a few files I decided to submit so I zipped them into a folder. If the images don\'92t appear in this file, they are also attached along with a text file version of this file (in case you cannot open .rtf files).\
+\
 \
 What is a Queue\
 	A queue, like an array, is an ordered collection. The way objects are ordered in a queue is based on how they are inserted into the queue. Like a stack, time of insertion is hugely critical. A stack is a LIFO data structure, Last In First Out. The more recently added an object is into a stack, the faster it will come out of the stack. The opposite is true for a queue. A queue is a FIFO data structure, First In First Out. A queue is like a line at the movies in the sense that the earlier you get into the line, the earlier you get out. The first object added into a queue will be the first object out.\
@@ -62,5 +64,9 @@ These results are clearly logarithmic, backing up the fact that insertion and re
 \i0  better than O(n).\
 \
 Proof Of Accuracy & Speed Through Test Cases\
-	The Main.java file is home to several test cases that will compare all three priority queue implementations mentioned before (java.util, both of mine). Here is a sample output in the event that you don\'92t want to compile and run the code.\
+	The Main.java file is home to several test cases that will compare all three priority queue implementations mentioned before (java.util, both of mine). To test accuracy, I created the three types of priority queues and added 10 random strings to them (created with UUIDgen). They are then polled out and printed. The result is three lines containing the exact same series of UUID\'92s, proving the accuracy of my priority queues.\
+	The speed tests were a little different. The first step was to use a custom Comparator subclass that keeps track of the number of comparisons it makes. This allows me to test how efficient each queue is. For each queue, four tests are run. Each test is the same but with a different n value. The first step is to add n random elements to the queue. Once the queue is n size, add one more and see how many comparisons were made. The number of comparisons that were made to add each element now becomes the y coordinate on the two graphs above at the given value of n. The values of n were (100, 1000, 10000, 100000).\
+\
+A sample output of the program can be found in an attached file.\
+\
 }
