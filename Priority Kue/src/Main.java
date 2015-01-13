@@ -176,27 +176,6 @@ public class Main
         for (int i = 0; i < length; i++) { System.out.print("="); }
         System.out.println();
     }
-
-    private static void test()
-    {
-        Comparator<String> com = new Comparator<String>() {
-            @Override
-            public int compare(String s, String t1) {
-                return - s.compareTo(t1);
-            }
-        };
-
-        java.util.PriorityQueue<String> pq = new java.util.PriorityQueue<String>(1, com);
-
-        pq.add("zz");
-        pq.add("bbb");
-        pq.add("ccc");
-
-
-        while (!pq.isEmpty()    ) {
-            System.out.println(pq.poll());
-        }
-    }
 }
 
 

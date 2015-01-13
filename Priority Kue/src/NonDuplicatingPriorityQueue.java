@@ -189,7 +189,7 @@ public class NonDuplicatingPriorityQueue<T>
     /**
      *  This is the algorithm to merge two queues. It relies on the tree merging algorithms of TreeSet.
      *  <complexity>
-     *     Like most Tree Merging algorithms - Something not that great. 
+     *     Like most Tree Merging algorithms - Something not that great.
      *  </complexity>
      * @param other
      */
