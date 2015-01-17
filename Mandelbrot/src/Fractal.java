@@ -8,8 +8,9 @@ public class Fractal extends JFrame
 {
     Window window;
 
-    private final double scaleFactor = 10;
+    private final double scaleFactor = 5;
 
+    private String axisRep = "x = [-2, 1]\ny = [-1, 1]";
 
     private static final int PIXEL_SIZE = 1;
 
@@ -38,14 +39,16 @@ public class Fractal extends JFrame
                 }
             }
         });
-
-
-
-        System.out.println("X value " + window.complexForPoint(1440,0).real);
     }
 
     public void paint(Graphics g)
     {
+        Graphics2D g2 = (Graphics2D)g;
+        RenderingHints rh = new RenderingHints(
+                RenderingHints.KEY_TEXT_ANTIALIASING,
+                RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        g2.setRenderingHints(rh);
+
         for (int x = 0; x < getWidth(); x += PIXEL_SIZE)
         {
             for (int y = 0; y < getHeight(); y += PIXEL_SIZE)
@@ -54,14 +57,28 @@ public class Fractal extends JFrame
                 Complex z = window.complexForPoint(x,y);
                 int iters = z.escapeIters();
 
-                g.setColor(colorForEscapeIters(iters));
+                g2.setColor(colorForEscapeIters(iters));
 
-                g.fillRect(x,y,PIXEL_SIZE,PIXEL_SIZE);
-
-
+                g2.fillRect(x,y,PIXEL_SIZE,PIXEL_SIZE);
             }
         }
 
+        drawAxisRep(g);
+    }
+
+    private void drawAxisRep(Graphics g)
+    {
+        if (window.complexForPoint(0, getHeight()).escapeIters() < 40) {
+            g.setColor(Color.orange);
+        }
+        else {
+            g.setColor(Color.orange);
+        }
+
+        int inset = 15;
+        Point p = new Point(inset, getHeight() - inset);
+        g.setFont(new Font("Garamond", Font.PLAIN, 25));
+        g.drawString(axisRep, p.x, p.y);
     }
 
     private Color colorForComplexAndIters(Complex z, int n)
@@ -76,7 +93,9 @@ public class Fractal extends JFrame
     {
         if (escapeIters == -1) return Color.black;
 
-        return new Color((escapeIters & 255) << 5);
+        return new Color(escapeIters / 2, escapeIters, escapeIters / 3).brighter().brighter().brighter();
+
+        //return new Color((escapeIters & 255) << 5);
 
 //        int buckets = color_lookup.length;
 //        double size = 255.0 / buckets;
@@ -141,19 +160,18 @@ public class Fractal extends JFrame
             minY = c.imaginary - height;
             maxY = c.imaginary + height;
 
-            print();
+            resetAxisRep();
+
             repaint();
 
 
         }
 
-        public void print() {
-            System.out.println("X AXIS : " + minX + " - " + maxX);
-            System.out.println("Y AXIS : " + minY + " - " + maxY);
+        public void resetAxisRep()
+        {
+            axisRep = String.format("x = [%f, %f]\ny = [%f, %f]", minX, maxX, minY, maxY);
+            System.out.println(axisRep);
         }
-
-
-
 
     }
 
