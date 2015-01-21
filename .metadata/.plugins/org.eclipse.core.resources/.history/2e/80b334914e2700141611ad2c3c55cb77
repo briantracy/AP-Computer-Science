@@ -1,5 +1,0 @@
-
-public class WordPair {
-	private String a;
-	private String b;
-}
