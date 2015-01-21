@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/2. AP Computer Science A.iml" filepath="$PROJECT_DIR$/2. AP Computer Science A.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/AP Computer Science A.iml" filepath="$PROJECT_DIR$/.idea/AP Computer Science A.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AP Computer Science A.iml" filepath="$PROJECT_DIR$/AP Computer Science A.iml" />
     </modules>
   </component>
 </project>
