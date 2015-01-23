@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="HiVolts:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/HiVolts_jar</output-path>
-    <root id="archive" name="HiVolts.jar">
-      <element id="module-output" name="HiVolts" />
-    </root>
-  </artifact>
-</component>

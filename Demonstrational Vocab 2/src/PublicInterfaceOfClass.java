@@ -2,6 +2,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
+ *  The public interface of a class is how it is seen by the rest of the world. Public interfaces are composed of
+ *  anything declared public.
+ *
  *  This class is used as a demonstration of the public interface of a class. A class's public interface is made
  *  up of all of its public methods and fields. It is how this class is seen and interacted with by the world.
  *
@@ -41,7 +44,8 @@ public class PublicInterfaceOfClass
 
 
     /**
-     *  This method uses reflection to textualize the public interface of this class.
+     *  This method uses reflection to textualize the public interface of this class. By default, reflecting into
+     *  a class only reveals its public interface.
      */
     public void demonstrate() {
         Main.header("Demonstrating The Public Interface of a Class");
