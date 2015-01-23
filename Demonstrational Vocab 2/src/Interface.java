@@ -12,6 +12,9 @@ interface ICountable
     int myCount();
 }
 
+/**
+ * This classes implementation of myCount is dependant on its internal strings length
+ */
 class CoolString implements ICountable
 {
     String data;
@@ -22,6 +25,9 @@ class CoolString implements ICountable
     }
 }
 
+/**
+ * This classes implementation of myCount is dependant on its internal numbers value
+ */
 class CoolNumber implements ICountable
 {
     Integer data;
@@ -44,6 +50,9 @@ public class Interface
         coolString.data = "Hello World";
         coolNumber.data = 10;
 
+        /**
+         *  An interface is created between these two objects as they both have the myCount method
+         */
         if (coolString.myCount() > coolNumber.myCount()) {
             System.out.println("The string had a bigger myCount");
         }
