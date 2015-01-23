@@ -1,7 +1,0 @@
-Generalization
-Specification
-Specialization
-Requirement
-Abstraction
-Function
-Program\Counter
