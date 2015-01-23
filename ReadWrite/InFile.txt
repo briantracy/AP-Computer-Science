@@ -1,0 +1,22 @@
+This file must be stored in the same directory as the rest of the program for sucessful reading
+
+1
+2
+3
+hopefully you will catch me before i crash your program
+5
+45
+34
+56
+789
+4
+32
+56
+567
+
+asdf
+garbage
+hey please dont try to convert me to an integer, your program will crash
+675
+856
+75

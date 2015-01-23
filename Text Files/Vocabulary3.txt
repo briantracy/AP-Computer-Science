@@ -1,0 +1,49 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul
+
+Vocabulary 3
+
+1 ) Dynamic_Scope   Stack
+2 ) Dynamic_Scope   Function_Scope
+3 ) Dynamic_Scope   Block_Scope
+4 ) Dynamic_Scope   Lexical_Scope
+5 ) Dynamic_Scope   Global_Variable
+6 ) Dynamic_Scope   Namespace
+7 ) Stack           Function_Scope
+8 ) Stack           Block_Scope
+9 ) Stack           Lexical_Scope
+10) Stack           Global_Variable
+11) Stack           Namespace
+12) Function_Scope  Block_Scope
+13) Function_Scope  Lexical_Scope
+14) Function_Scope  Global_Variable
+15) Function_Scope  Namespace
+16) Block_Scope     Lexical_Scope
+17) Block_Scope     Global_Variable
+18) Block_Scope     Namespace
+19) Lexical_Scope   Global_Variable
+20) Lexical_Scope   Namespace
+21) Global_Variable Namespace
+
+1) If a variable is dynamically scoped, its value is heavily dependent upon the state of the call stack, which indicates where the current code is being executed from.
+2) In a dynamically scoped setting, the state of a variable in a function is dependent upon who is calling that function while in a functionally scoped language, the state of the variable is dependent upon what is going on in that function.
+3) The value of a variable is most of the time much clearer in a block scoped scenario as the programmer can see exactly in which scope a variable resides. In a dynamically scoped language, the value of a variable is sometimes unclear until runtime, making that variables value more elusive and difficult to pinpoint.
+4) Lexical scope is almost always very easily visualized as it depends mostly on the text of the program, unlike dynamic scope which relies heavily on the state of the program.
+5) Global Variables plus a dynamically scoped language make the value of a variable at an arbitrary point in execution very difficult to determine because the value is so dependent on other methods and code that was previously executed.
+6) In C++, namespaces are not dynamically scoped as the declarations they hold are contained within a single block.
+7) When using function scope, the call stack is not very important as variables values are not dependent on the functions that were previously invoked.
+8) When in block scope, local variables are pushed onto the stack unless specifically allocated otherwise.
+9) The stack is almost completely irrelevant when deciphering lexical scope as lexical scope is dependent on the physical text of a program, and not what is going on behind the scenes.
+10) Global variables are not put on the stack, more commonly they are stored in the data segment of memory.
+11) In C++, one could represent a stack by creating a namespace with methods such as push() and pop().
+12) Function scope and block scope are often very similar as the body of a function often serves as a block and the outermost bound for any block scoped variables declared within.
+13) Function scope often resembles lexical scope because both follow the same rules, one within a function, the other within an entire file.
+14) In functionally scope languages such as Javascript, global variables will be overridden by local variables with the same name.
+15) Lexical scope is similar to block scope but on a whole file basis, ie: the file is one big block.
+16) Java is both lexically and block scoped.
+17) Unless otherwise specified, a local variable will take higher precedence than a global variable in a block scoped language.
+18) A namespace is a block scoped as it is simply a block of code that is filed under a certain name. ie: namespace::method()
+19) A global variable is at the highest lexical scope of a program.
+20) Within the functions of a namespace, lexical scope is observed along with function scope.
+21) Namespaces can contain global variables. These variables will be global to that namespace only.

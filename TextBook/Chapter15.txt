@@ -1,0 +1,41 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul
+
+Chapter 15, How To Think Like A Computer Scientist
+
++--------+
+| Stacks |
++--------+
+
+
+Abstract Data Types = set of methods + semantics of methods. Non specific implementation. High Level
+
+Client vs Provider
+
+A stack is a collection like arrays, linked lists.
+
+Last In First Out (LIFO) acheived through push and pop
+In the Java implementation of a stack, these methods return the opaque type Object. It is up to the programmer to cast accordingly.
+
+Stacks can be empty.
+
+Since (Java) stacks can only deal with objects, any primitives must be wrapped / boxed before pushing to the stack.
+Wrappers can be unboxed back to their respective primitive types.
+
+Hex and Octal.
+
+Infix operations go between operands, postfix go after, and prefix go before.
+
+Parsing something breaks it into tokens. Delimiters are used during tokenization
+StringTokenizer can take a delimiter and parse a string.
+
+Clients assume implementations of ADTs are correct. It is abstracted away.
+
+When writing ADTs, we can change the implementation without worrying about breaking the clients code.
+
+A static array is a weakness in this design pattern, as it has to be resized.
+
+Postconditions are known to be true at the end of the execution of a certain algorithm.
+
+

@@ -1,0 +1,96 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul
+
+Time Complexity of Searching, Inserting, and Deletion in the cases of ArrayList, TreeSet, and Set
+
+												+------------------------+
+												| java.util.ArrayList<E> |
+												+------------------------+
+	An arraylist is part of the Collections API. It is an ordered collection, therefore its elements are stored internally in a certain order. ArrayLists are Variable Length Arrays (VLAs). This means that they can be resized, unlike normal arrays. Similar to a Stack, elements can be put into an ArrayList and memory will be automatically allocated accordingly.
+
+
+Class/Interface/Abstract Class?
+-------------------------------
+	The java.util.ArrayList<E> is a concrete subclass of java.util.AbstractClass<E>. It is a generic type, supporting meta programming (signified by <E>). Similar to C++ Templates, ArrayLists are strongly typed at creation. For example, ArrayList<String> and ArrayList<Integer> are the same class, but different types. 
+
+Critical Methods
+----------------
+	The two most critical methods of the java.util.ArrayList<E> class are the get() and set() methods.
+		public E get(int i)
+		public void set(int i, E e)
+	These methods are used to remove and append elements on to an ArrayList.
+
+Search Time
+-----------
+	To see if an ArrayList contains an object, you must use  `public boolean contains(Object o)`. This method runs in linear time, O(n). This is because at worst, every element must be traversed in the ArrayList, calling .equals(o) on all of them. Worst case scenario, you traverse every element in the ArrayList before you 
+		a) find that the list contains o. 
+		b) find that the list does not contain o.
+
+Access Time
+-----------
+	Getting elements from an ArrayList via the `public E get(int i)` method will only set you back O(1) time, or constant time. This is because the ArrayList will defer to its inner array backing store which has a constant retrieval time.
+
+Insertion Time
+--------------
+	Where you insert an object into an ArrayList is very important to the time complexity of the process. For insertion at the back of an ArrayList, you can use the `public boolean add(E e)` method. This will complete in constant time. For insertions at the front and middle, an O(n) cost will be payed as elements have to be shuffled around (remember, it is an ordered collection).
+		Front:  O(n)
+		Middle: O(n)
+		Back:	O(1)
+
+Deletion Time
+-------------
+	Unless you are removing the last element of the ArrayList, removing either based on a reference or an index will cost 
+	O(n) because of re ordering around the removed element.
+
+Recap
+-----
+	java.util.ArrayList is a generic class. Searching, inserting, and removing are generally O(n) operations while accessing is O(1).
+
+
+												+------------------+
+												| java.util.Set<E> |
+												+------------------+
+Class/Interface/Abstract Class?
+-------------------------------
+	The java.util.Set<E> is an abstract interface that extends java.util.Collection<E>. Like Arraylist and most collections, Set<E> is a generic. A set is a data type that contains an unordered collection of values. A set cannot contain any duplicate entries, every object in a set is unique. The set interface has many implementations that each have their own benefits. Some are HashSet and Tree Set.
+
+Critical Methods
+----------------
+	Critical methods declared by the Set<E> interface are add() remove() size() and isEmpty(). They are all pretty self explanatory but offer the functionality that we see in all java collections.
+
+Search Time
+-----------
+	Most sets have a search time of O(1) except for the Tree Set which is O(log n).
+
+Insertion Time
+--------------
+	Most sets also have an insertion time of O(1) except for the Tree set which takes O(log n) time.
+
+Deletion Time
+-------------
+	Deletion from most sets takes O(1) time but the tree set is still O(log n).
+
+												+----------------------+
+												| java.util.TreeSet<E> |
+												+----------------------+
+
+
+Class/Interface/Abstract Class?
+-------------------------------
+	The Tree Set is a concrete class that implements the NavigableSet<E> interface which implements the SortedSet<E> interface, which implements the Set<E> interface. Elements in a Tree Set are ordered. Most operations on a Tree Set are O(log n) but for small amounts of n, this might actually be faster than the O(1) of larger HashSets. Tree Sets do not allow null references to be placed in them.
+
+Searching
+---------
+	Searching a tree set takes longer than other sets. To search a tree set, O(log n) time is taken.
+
+Insertion
+---------
+	Again, the Tree Set falls behind its counterpart sets with an insertion time of O(log n).
+
+Deletion
+--------
+	Removing an element from a tree set will set you back O(log n) time.
+
+
+	

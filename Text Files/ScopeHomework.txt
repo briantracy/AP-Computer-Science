@@ -1,0 +1,51 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul
+Scope Homework
+
+1) The code outputs the following.
+	3
+	3.14
+	3
+	7
+	7
+	88
+	2
+	2.7
+
+2) This is because the static variable b is shared across all instances of the MyScope class. This means that by changing myInstance.b , you are changing the b variable across all instances, including otherInstance.b . The 2 appears after the 88 because a is an instance variable, specific to each instance of MyScope. When changing my myInstance.a to 88, the change is not reflected across all instances of that class, just myInstance. For this reason, otherInstance.a is not changed and remains 2. 
+
+3) When trying to access the instance variable a in a static context (MyScope.a), a compilation error occurs. The error occurs because the variable a does not belong to the class MyScope, but an instance of that class.
+
+4) 
+	class Test {
+
+		GlobalOverride int x = 10;
+
+		private void foo() {
+			int x = 4; 	// name error, x is already declared here because it is GlobalOverride
+		}
+
+		private void bar() {
+			int y = x + 3;		// y is now 13 because x is visible in this scope as it is global and also acts as a local 
+			variable.
+						// also, no need to refer to it as this.x as it is already brought into this local scope.
+		}
+	}
+
+One advantage of using GlobalOverride is that it eliminates confusion about the ways local variables and global variables interact. Often when using global variables, local variables with the same name confuse developers because it is unclear wether the global variable of the local variable is being modified. C++ solves this problem with the scope resolution operator (::). 
+
+	// main.h
+
+	int x = 5; // global variable 
+
+	int main(int argc, const char * argv[]) {
+		int x = 3; // not an error, local variable has higher priority than global.
+
+		int y = ::x + x; // ::x refers to the global variable x
+	}
+
+This too can be confusing if one accidentally omits the :: and refers to a local variable. GlobalOverride eliminates this problem by automatically bringing variables into scope, disallowing renaming of them as new local variables. Another way GlobalOverride increases readability is that when someone reading my code sees x, they know that it was declared GlobalOverride and that there is only one instance of x, ie: there are no other local variables that could be conflicting with it.
+The bad part about GlobalOverride is although it is safer than most global variables, it is also still a global variable, and therefore is frowned on. Global variables are confusing because their state is hard to pinpoint at any given time because every method of a class can simultaneously modify them.
+
+5) It would be a very bad idea to have the ability to change a variables scope at runtime based on a conditional. The biggest reason this would be harmful is that it drastically lowers the readability of code. This applies to both the the original writer and anyone who would read the code later. The changing of scope at runtime would make it impossible to determine what is going on in a section of code without actually compiling and running the code. This would slow down development and make coding more difficult because the code would lose its clarity. 

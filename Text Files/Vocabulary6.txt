@@ -1,0 +1,49 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul
+
+Vocabulary 6
+
+1 ) Invariant      Representation
+2 ) Invariant      Algorithm 
+3 ) Invariant      Compile
+4 ) Invariant      Interpret
+5 ) Invariant      Virtual
+6 ) Invariant      Indirection
+7 ) Representation Algorithm 
+8 ) Representation Compile
+9 ) Representation Interpret
+10) Representation Virtual
+11) Representation Indirection
+12) Algorithm      Compile
+13) Algorithm      Interpret
+14) Algorithm      Virtual
+15) Algorithm      Indirection
+16) Compile        Interpret
+17) Compile        Virtual
+18) Compile        Indirection
+19) Interpret      Virtual
+20) Interpret      Indirection
+21) Virtual        Indirection
+
+1) One representation of an invariant is a final variable.
+2) An algorithm may depend on a set of invariants to ensure correct execution.
+3) In C++ you can use static_assert to assert invariants at compile time.
+4) Invariants exist both in interpreted languages and compiled languages.
+5) In a virtual address table, an invariant is the fact that nothing exists between adresses.
+6) To access a variable through indirection, an invariant you must know is its address.
+7) A physical representation of an algorithm could be a picture.
+8) A compiler will turn your code into a binary representation for the lower level aspects of your machine.
+9) For humans, it is hard to interpret the binary representation of a number.
+10) A adress table is a virtual representation of memory.
+11) One way to represent indirection is through pointers.
+12) In order to be compiled, an algorithm must be represented in code.
+13) Interpreting an algorithm is half the battle when it comes to implementing it in code.
+14) For a virtual address space, an algorithm must map real memory addresses to virtual ones.
+15) Some algorithms might access necessary data through indirection.
+16) Compiled languages often have faster runtimes than interpreted ones.
+17) Compiling will take a program out of virtual memory, and put it in physical memory for the loader to execute.
+18) Indirection through pointers is often not evaluated untill after compile time during runtime.
+19) Interpreting virtual adresses can be confusing becuase they can map to physical memory all over the place.
+20) Multiple levels of Indirection can be very difficult to interpret for humans as it can become complicated.
+21) A virtual address table is an example of indirection to the physical memory.

@@ -1,0 +1,105 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul
+
+Chapter 15 Excercises
+
+1) Transform merge() and mergeSort() into object methods.
+
+	For merge(), this can be done by simply replacing the first argument of the function with this and removing the static keyword. For example, the method signature of merge() before the change is as follows
+
+		public static Deck merge(Deck d1, Deck d2)
+
+	The first step to changing this into an object method is to remove the redundant d1 parameter, as it will be replaced by the this keyword. That leaves us with the following.
+
+		public static Deck merge(Deck d2)
+
+	Next we must remove the static keyword to truly make this an object method. Now we have the following signature.
+
+		public Deck merge(Deck d2)
+
+	Our last step is to now replace every occurrence of d1 with the this keyword in the implementation. One example would be changing this line: 
+		Deck result = new Deck (d1.cards.length + d2.cards.length);
+
+	to this:
+		Deck result = new Deck (this.cards.length + d2.cards.length);
+
+
+	For the mergeSort() function, we only have to do one thing as it is already an object function. The mergeSort() function calls the merge() function that we just changed, so now we must change the call to that function. Because the new method signature for merge() only takes one argument, we can eliminate the first argument we normally pass to merge() as it will be replaced by the this keyword.
+
+	The call that was once:
+		return merge(d1, d2);
+
+	Now becomes:
+		return merge(d2);
+
+	As the this keyword will serve as d1 because merge() was changed to an object function.
+
+
+2) Transform the following class method to an object method.
+	
+	Before:
+	public static double abs(Complex c) {
+    		return Math.sqrt(c.real * c.real + c.imag * c.imag);
+	}
+
+	After:
+	public double abs() {
+		return Math.sqrt(this.real * this.real + this.imag + this.imag);
+
+		// we could have omitted `this` because there are no naming conflicts in this scope,
+		// but I wanted to show that `this` was replacing the previous argument.
+	}
+
+	This is possible because the only argument to this function can be replaced with the this keyword, as it is now an object method as apposed to a class method. Now instead of calling this function on the Complex class and passing it an instance, we can directly call it on any instance of the Complex class.
+
+3) Transform the following object method to an class method.
+	
+	Before:
+	public boolean equals(Complex b) {
+    		return(real == b.real && imag == b.imag);
+	}	
+
+	After:
+	public static boolean equals(Complex a, Complex b) {
+		return (a.real == b.real && a.imag == b.imag);
+
+		// we can no longer just use `real` and `imag` on their own because
+		// they no longer refer to instance variables as this is a class method,
+		// not an object method.
+	}
+
+See Main.java and RationalNumber.java to see the implementation of the following exercise.
+
+4) Change the functions in the rational class from class to object methods. 
+	This was relatively easy as most of the methods were already object methods and the ones that were not were easily fixed. The process was the same on all of them. Remove the static keyword and replace all instances of the first argument to the function with the this keyword.
+
+  What are the pros and cons of object and class methods?
+	Object methods make the meaning or purpose of a method more clear. By behaving as actions related to objects, object methods seem more natural and more like english.	For example, if we had a Person class, it is much more intuitive to say instance.sayHello() than to say Person.sayHello(instance). This is a critical part of OOP and is why object methods are often more clear than related class methods. One con of an object method is that if the function you want to call has no need for an instance, then creating an instance just to call it is a waste of time. In this case, a class method is more appropriate. A good example is the Math.min() function. This is rightfully a class method because creating an instance of a class every time you wanted to call max() would be a waste of time and memory. 
+
+5) This exercise is mostly explained by the attached CardSoln3.java, PokerHand.java, and Main.java.
+
+	This exercise was interesting because it showed the power of computers when applied to real world applications. Poker is a game of odds, and there is nothing better at computing odds than a computer because it can run several million scenarios in the time it takes us to run one. The specification said that we were to find the percentages of the following hands.
+		- pair
+		- flush
+		- three of kind
+
+For an added bonus, I threw in a hasRoyalFlush() method to calculate whether or not a hand contains the most powerful and elusive hand in all of poker. A huge part of my implementation was the use of the Set. The Set is a lesser known data type, not getting as much fame as the ordered collections such as arrays. Like Map, Set is unordered, which makes it perfect for representing poker hands. Equality between sets is determined not by the order of the elements between two sets, but what those sets contain. 
+
+These were the typical results of my program.
+
+	flushPercentage = 0.208
+	threeKindPercentage = 2.2950000000000004
+	pairPercentage = 45.449
+	royalFlushPercentage = 0.0010 
+
+As you can see, the royal flush is very hard to come by, and only through an insane amount of iterations are we able to obtain an accurate percentage.
+
+Another requirement was to make it so we could change the number of cards in a hand. This can be done in the CardSoln3.java file in the deal() method. When increased to 20 cards, the likelihood of getting a 3 of a kind is 95%.
+
+
+
+
+
+	
+

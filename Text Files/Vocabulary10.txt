@@ -1,0 +1,48 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul
+
+1 ) Try                   Catch
+2 ) Try                   Finally
+3 ) Try                   Error
+4 ) Try                   Compile Time Error
+5 ) Try                   Run Time Error
+6 ) Try                   Error Correction Code
+7 ) Catch                 Finally
+8 ) Catch                 Error
+9 ) Catch                 Compile Time Error
+10) Catch                 Run Time Error
+11) Catch                 Error Correction Code
+12) Finally               Error
+13) Finally               Compile Time Error
+14) Finally               Run Time Error
+15) Finally               Error Correction Code
+16) Error                 Compile Time Error
+17) Error                 Run Time Error
+18) Error                 Error Correction Code
+19) Compile Time Error    Run Time Error
+20) Compile Time Error    Error Correction Code
+21) Run Time Error        Error Correction Code
+
+
+1) A try block is usually, but not always, followed by a catch block.
+2) A try catch sequence can be followed by a finally block that will be executed in regardless of wether an exception is thrown.
+3) If an error occurs during the execution of a try block, control is transferred to the corresponding catch block.
+4) Compile time errors that occur during a try block will not be caught.
+5) Run time errors will be caught by a try block.
+6) If an exception is thrown in a try block, error correction code will be executed in the associated catch block.
+7) A finally block cannot come before a catch block.
+8) A catch block must have a specific kind of error it will be catching.
+9) A compile time error cannot be caught.
+10) A run time error does not have to be fatal if it is caught properly.
+11) A catch block is where you put your error correction code.
+12) A finally block will execute even if an error did not occur.
+13) A finally block all on its own will cause a compile time error.
+14) For runtime errors caused while reading from text files, a finally block should always be there to close the resource.
+15) A finally block is not the place for error correction code as an error does not have to happen for a finally block to be executed.
+16) A compile time error is not an error that can be specified in a catch block.
+17) A run time error is a kind of error that the programmer should always be expecting.
+18) For every error that might occur, a programmer should write defensive error correction code.
+19) Most runtime errors are objects in java that can be caught and thrown while compile time errors are not classes.
+20) Error correction code is not effective against compile time errors.
+21) Runtime errors can often be dealt with by proper error correction code.

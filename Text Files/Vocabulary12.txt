@@ -1,0 +1,49 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul
+
+Vocabulary 12
+
+1 ) Map         Hash table
+2 ) Map         queue
+3 ) Map         heap
+4 ) Map         linked list
+5 ) Map         log
+6 ) Map         tree depth
+7 ) Hash table  queue
+8 ) Hash table  heap
+9 ) Hash table  linked list
+10) Hash table  log
+11) Hash table  tree depth
+12) queue       heap
+13) queue       linked list
+14) queue       log
+15) queue       tree depth
+16) heap        linked list
+17) heap        log
+18) heap        tree depth
+19) linked list log
+20) linked list tree depth
+21) log         tree depth
+
+1) One Map in Java is implemented with a Hash Table to store entries.
+2) A Map and Queue are both abstract data types.
+3) Maps can be stored on the heap and referenced. 
+4) In Java, you can store a linked list in a map as both a key and a value.
+5) Maps often perform in O log n time or better for most operations.
+6) A Map does not have an associated tree depth.
+7) A queue is ordered but a Hash Table is not.
+8) A heap can be implemented as a hash table.
+9) Hash Table and Linked List are both in the Collections API in java.
+10) Most common hash table operations can be implemented in O log n time.
+11) Unlike trees, hash tables do not have depth.
+12) A heap has no linear order but a linked list does.
+13) A queue can be implemented as a linked list with restrictions on how elements are accessed.
+14) Adding to a queue is not a O log n operation, it is an O 1 operation.
+15) Elements in a queue can be labeled by their index while elements in a tree can be labeled by their depth.
+16) A linked list does not satisfy the “heap property”.
+17) Deleting the minimum element in a binary heap is an O log n operation.
+18) Heaps that are implemented as trees have nodes with associated depth.
+19) Insertion to a linked list is constant, not O log n time.
+20) Tree depth in a linked list could be a nodes distance from the root of the list.
+21) The tree depth of a n vertex tree is log n.

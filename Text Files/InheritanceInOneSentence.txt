@@ -1,0 +1,7 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul
+
+Inheritance
+
+Inheritance is the way in which one class can augment another by assuming all of its characteristics and adding more.
