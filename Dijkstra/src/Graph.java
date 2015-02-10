@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 public class Graph
 {
@@ -7,6 +8,8 @@ public class Graph
     int[][] adjacencyMatrix;
 
     Node[] nodes;
+
+    int start;
 
 
     public Graph(int[][] adjacencyMatrix)
@@ -16,9 +19,7 @@ public class Graph
 
         nodes = new Node[this.adjacencyMatrix.length];
 
-
         createNodes();
-        print();
     }
 
 
@@ -46,6 +47,11 @@ public class Graph
         }
     }
 
+    public void setStartingNode(int num)
+    {
+        this.start = num;
+    }
+
     private void print()
     {
         for (Node nd : nodes) {
@@ -53,4 +59,41 @@ public class Graph
         }
     }
 
+
+
+    public void runDijkstra()
+    {
+        nodes[start].distance = 0;
+
+        PriorityQueue<Node> queue = new PriorityQueue<Node>(Arrays.asList(nodes));
+
+        while (!queue.isEmpty()) {
+
+            Node current = queue.poll();
+
+
+
+            for (Node neighbor : current.neighbors)
+            {
+                int weight = weight(current, neighbor);
+
+                int newDistance = current.distance + weight;
+
+                if (newDistance < neighbor.distance) {
+                    neighbor.distance = newDistance;
+                    neighbor.lastNode = current;
+                }
+            }
+        }
+
+    }
+
+    public void printOutput()
+    {
+        for (Node nd : nodes) {
+
+            System.out.println("Node " + (nd.id + 1) + " : Distance : " + nd.distance );
+
+        }
+    }
 }

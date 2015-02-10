@@ -7,13 +7,31 @@ public class Main
     {
         int[][] adj = new int[][] {
 
-                { 1, 2, 3, 4},
-                { 2, 3, 4, 5},
-                { 3, 4, 6, 7},
-                { 4, 5, 6, 7}
+                { 0, 3, 0, 15},
+                { 0, 0, 4, 10},
+                { 7, 0, 0, 2},
+                { 0, 0, 0, 0}
+        };
+
+        int[][] presentation = new int[][] {
+
+                { 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0 }
         };
 
         Graph graph = new Graph(adj);
+
+        graph.setStartingNode(0);
+
+        graph.runDijkstra();
+
+        graph.printOutput();
 
         System.out.println("done");
 
