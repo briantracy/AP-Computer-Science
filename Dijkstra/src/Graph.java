@@ -15,7 +15,6 @@ public class Graph
     public Graph(int[][] adjacencyMatrix)
     {
         this.adjacencyMatrix = adjacencyMatrix;
-        System.out.println(Arrays.deepToString(this.adjacencyMatrix));
 
         nodes = new Node[this.adjacencyMatrix.length];
 
@@ -34,6 +33,7 @@ public class Graph
         {
             Node node = new Node(i);
             nodes[i] = node;
+            nodes[i].lastNode = nodes[i];
         }
 
         for (int row = 0; row < nodes.length; row++)
@@ -51,15 +51,6 @@ public class Graph
     {
         this.start = num;
     }
-
-    private void print()
-    {
-        for (Node nd : nodes) {
-            System.out.println("Node " + nd.id + " : " + nd.neighbors);
-        }
-    }
-
-
 
     public void runDijkstra()
     {
@@ -91,9 +82,10 @@ public class Graph
     public void printOutput()
     {
         for (Node nd : nodes) {
-
-            System.out.println("Node " + (nd.id + 1) + " : Distance : " + nd.distance );
-
+            System.out.println(String.format("Node %s | Distance %-2d | Last Visited %s",
+                                            nd.alphaID(),
+                                                        nd.distance,
+                                                                        nd.lastNode.alphaID()));
         }
     }
 }

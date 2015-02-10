@@ -7,8 +7,6 @@ public class Node implements Comparable<Node>
 
     ArrayList<Node> neighbors;
 
-    boolean isVisited = false;
-
     int distance = Integer.MAX_VALUE;    // not yet known
 
     Node lastNode;
@@ -34,5 +32,10 @@ public class Node implements Comparable<Node>
     @Override
     public String toString() {
         return "id = " + id;
+    }
+
+    public String alphaID()
+    {
+        return new Character((char)('A' + id)).toString();
     }
 }
