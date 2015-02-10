@@ -32,12 +32,15 @@ if __name__ == '__main__':
     html = formatted_html_from_page(Constants.SRC_URL)
     stripped = stripped_html_from_source(html)
 
-    tag = 'script'
+    print stripped
 
-    tags = list_of_tags(tag, stripped)[0]
+    tag = 'table'
 
+    tags = list_of_tags(tag, stripped)
+
+    print type(tags)
     print tags
-    print contents_of_tag(tags)
+
 
 
 

@@ -1,3 +1,4 @@
+/// Created by Brian Clement Tracy
 
 
 public class Complex {
@@ -48,21 +49,6 @@ public class Complex {
     public int escapeIters()
     {
         return escapeIters_();
-//        final int kMaxIters = 100;
-//        int iters = 1;
-//        Complex z = new Complex(0,0);
-//
-//
-//        for (; iters < kMaxIters; ++iters)
-//        {
-//            z = z.multiply(z).add(this);
-//            if (Double.isInfinite(z.distance())) {
-//                return iters;
-//            }
-//        }
-//
-//
-//        return -1;
     }
 
     private int escapeIters_()
@@ -97,7 +83,5 @@ public class Complex {
     {
         return Math.sqrt((real * real) + (imaginary * imaginary));
     }
-
-
 
 }

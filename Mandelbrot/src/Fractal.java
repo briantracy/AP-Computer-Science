@@ -1,20 +1,50 @@
+/// Created by Brian Clement Tracy
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
+
 public class Fractal extends JFrame
 {
     Window window;
 
-    private final double scaleFactor = 5;
+    private final double scaleFactor = 10;
 
     private String axisRep = "x = [-2, 1]\ny = [-1, 1]";
 
     private static final int PIXEL_SIZE = 1;
 
+    static  Color[] color_lookup = new Color[16];
 
+
+    static {
+        color_lookup[0] = new Color(66, 30, 15);
+        color_lookup[1] = new Color(25, 7, 26);
+        color_lookup[2] = new Color(9, 1, 47);
+        color_lookup[3] = new Color(4, 4, 73);
+        color_lookup[4] = new Color(0, 7, 100);
+        color_lookup[5] = new Color(12, 44, 138);
+        color_lookup[6] = new Color(24, 82, 177);
+        color_lookup[7] = new Color(57, 125, 209);
+        color_lookup[8] = new Color(134, 181, 229);
+        color_lookup[9] = new Color(211, 236, 248);
+        color_lookup[10] = new Color(241, 233, 191);
+        color_lookup[11] = new Color(248, 201, 95);
+        color_lookup[12] = new Color(255, 170, 0);
+        color_lookup[13] = new Color(204, 128, 0);
+        color_lookup[14] = new Color(153, 87, 0);
+        color_lookup[15] = new Color(106, 52, 3);
+    }
+
+    private Color getColorForIters(int iters)
+    {
+        int bucketWidth = 255 / 16;
+
+
+        return color_lookup[iters % 16];
+    }
 
     public Fractal()
     {
@@ -39,31 +69,24 @@ public class Fractal extends JFrame
                 }
             }
         });
+
+
     }
 
     public void paint(Graphics g)
     {
-        Graphics2D g2 = (Graphics2D)g;
-        RenderingHints rh = new RenderingHints(
-                RenderingHints.KEY_TEXT_ANTIALIASING,
-                RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        g2.setRenderingHints(rh);
-
         for (int x = 0; x < getWidth(); x += PIXEL_SIZE)
         {
             for (int y = 0; y < getHeight(); y += PIXEL_SIZE)
             {
-
-                Complex z = window.complexForPoint(x,y);
-                int iters = z.escapeIters();
-
-                g2.setColor(colorForEscapeIters(iters));
-
-                g2.fillRect(x,y,PIXEL_SIZE,PIXEL_SIZE);
+                int iters = this.window.complexForPoint(x,y).escapeIters();
+                g.setColor(colorForEscapeIters(iters));
+                g.fillRect(x, y, PIXEL_SIZE, PIXEL_SIZE);
             }
         }
 
         drawAxisRep(g);
+
     }
 
     private void drawAxisRep(Graphics g)
@@ -93,15 +116,11 @@ public class Fractal extends JFrame
     {
         if (escapeIters == -1) return Color.black;
 
-        return new Color(escapeIters / 2, escapeIters, escapeIters / 3).brighter().brighter().brighter();
-
-        //return new Color((escapeIters & 255) << 5);
-
-//        int buckets = color_lookup.length;
-//        double size = 255.0 / buckets;
-//        int bucket = (int)(escapeIters / size);
+        return getColorForIters(escapeIters);
+//        if (escapeIters == -1) return Color.black;
 //
-//        return color_lookup[bucket];
+//        return new Color(escapeIters / 2, escapeIters, escapeIters / 3).brighter().brighter().brighter();
+
 
     }
 
@@ -175,12 +194,4 @@ public class Fractal extends JFrame
 
     }
 
-
-    private Color[] color_lookup = new Color[] {
-            Color.red,
-            Color.green,
-            Color.orange,
-            Color.yellow,
-            Color.white
-    };
 }
