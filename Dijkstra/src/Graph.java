@@ -62,8 +62,6 @@ public class Graph
 
             Node current = queue.poll();
 
-
-
             for (Node neighbor : current.neighbors)
             {
                 int weight = weight(current, neighbor);

@@ -16,6 +16,9 @@ public class Visualizer extends JFrame {
     Point connectionA, connectionB;
 
 
+
+
+
     public Visualizer()
     {
         setBackground(Color.blue);
@@ -66,18 +69,27 @@ public class Visualizer extends JFrame {
             isConnecting = true;
             connectionA = p;
         }
+        else {
+            points.add(p);
+        }
 
         repaint();
-
     }
 
     private void release(Point p)
     {
-        points.add(p);
+        if (isConnecting) {
+            if (hasPressedHere(p)) {
+                isConnecting = false;
+                connectionB = p;
+
+
+
+            }
+        }
 
         repaint();
 
-        System.out.println("release");
     }
 
     private int distance(Point a, Point b)
@@ -104,15 +116,23 @@ public class Visualizer extends JFrame {
     @Override
     public void paint(Graphics g) {
 
-        g.setColor(Color.orange);
+        int idx = 0;
         for (Point p : points) {
 
             Point orig = new Point(p.x - CIRCLE_RADIUS, p.y - CIRCLE_RADIUS);
 
+            g.setColor(Color.orange);
             g.fillOval(orig.x, orig.y, CIRCLE_DIAMETER, CIRCLE_DIAMETER);
+            g.setColor(Color.black);
+            g.drawString(currentNodeName(idx), p.x, p.y);
 
+            idx++;
         }
+    }
 
+    private String currentNodeName(int x)
+    {
+        return new Character((char)('A' + x)).toString();
     }
 }
 

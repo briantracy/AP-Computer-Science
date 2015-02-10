@@ -1,0 +1,92 @@
+                |0.1M Ba(NO3)2   |0.1M BaCl2      |0.2M K2CrO4     |0.1M K2SO4      |0.4M KCl        
+
+0.1M Ba(NO3)2
+
+0.1M BaCl2
+
+0.2M K2CrO4
+
+0.1M K2SO4
+
+0.4M KCl
+
+
+
+                |0.2M Na2SO4     |0.14M Al2(SO4)3 |0.1M Sr(NO3)2   |0.2M MgCl2      |0.1M Ba(NO3)2   
+
+0.2M Na2SO4
+
+0.14M Al2(SO4)3
+
+0.1M Sr(NO3)2
+
+0.2M MgCl2
+
+0.1M Ba(NO3)2
+
+0.07M AlCl3
+
+
+
+                |0.1M Co(NO3)2   |0.2M KOH        |0.2M NaNO3      |0.5M NaOH       |0.1M FeCl3      
+
+0.1M Co(NO3)2
+
+0.2M KOH
+
+0.2M NaNO3
+
+0.5M NaOH
+
+0.1M FeCl3
+
+0.1M CoCl2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                |0.5M NaOH       |0.1M NiCl2      |0.14M Ba(OH)2   |0.2M MgCl2      |0.2M MgSO4      
+
+0.5M NaOH
+
+0.1M NiCl2
+
+0.14M Ba(OH)2
+
+0.2M MgCl2
+
+0.2M MgSO4
+
+0.2M Na2SO4
+
+
+
+
+
+
+
+                |0.1M Sr(NO3)2   |0.1M BaCl2      |0.14M Al2(SO4)3 |0.2M K2CrO4     |0.05M AgNO3     
+
+0.1M Sr(NO3)2
+
+0.1M BaCl2
+
+0.14M Al2(SO4)3
+
+0.2M K2CrO4
+
+0.05M AgNO3
+
+
+
