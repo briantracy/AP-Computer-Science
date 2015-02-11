@@ -1,10 +1,17 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
+/**
+ *
+ *      This class represents a Graph, the playing field for Dijkstra's Algorithm.
+ *
+ *      This class is the bridge between the cold world of Adjacency Matrices and the nice and cozy world
+ *      of Object Oriented Graph Theory.
+ *
+ *      
+ */
 public class Graph
 {
-
     int[][] adjacencyMatrix;
 
     Node[] nodes;
