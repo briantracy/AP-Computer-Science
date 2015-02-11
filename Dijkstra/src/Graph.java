@@ -136,6 +136,8 @@ public class Graph
      *      This method is a simple setter for our starting position.  It reads nicely from the outside (see Main.java).
      *      The start value is important because without it, Dijkstra's Algorithm would spin endlessly as all of the
      *      node's tentative distance values would be Infinity.
+     *
+     *      (note: it would not actually spin endlessly, but the results would be garbage)
      *  </summary>
      *
      */
@@ -176,7 +178,44 @@ public class Graph
     }
 
     /**
-     *  
+     *  Behold Dijkstra's Algorithm. Coming in at only 10 statements, it holds the simplicity of a recursive
+     *  algorithm without the ensuing complexity.
+     *
+     *  <summary>
+     *      Little setup is needed before the guts of Dijkstra's Algorithm can be executed. The first is to
+     *      declare a starting node. This is crucial because without it, the program would not perform properly. Declaring
+     *      the starting node is as easy as setting the start-th element in our node array to have a distance of 0. This
+     *      immediately makes it the first element in the PriorityQueue because 0 < Integer.MAX_VALUE which is the default
+     *      tentative distance.
+     *              1. Declare a starting node.
+     *
+     *      The next thing we have to do is make the PriorityQueue that contains each node in the graph. This is an easy
+     *      one-liner with the help of the Arrays.asList() method and the PriorityQueue constructor that takes a list. The
+     *      PriorityQueue is needed because we always want to move to the next node that has the lowest tentative distance.
+     *
+     *      Remember that the comparator in the Node class is based on distance so the Queue will naturally be ordered
+     *      by each node's distance.
+     *              2. Construct a PriorityQueue of nodes
+     *
+     *      This next step is the first of the actual Dijkstra Code. We must loop until the Queue is empty. This
+     *      represents the algorithm visiting all of the nodes in the graph.
+     *
+     *      <important>
+     *          Note that the polling from the Queue is not as static as it may seem. As the body of the while loop
+     *          is executed, distance of ALL of the nodes might change, affecting the outcome of the next poll() call.
+     *
+     *          While it may seem like a straight up polling out of the Queue, there is a lot more going on behind the
+     *          scenes that affects the Queue.
+     *      </important>
+     *
+     *      We must perform the body of Dijkstra's Algorithm untill the PriorityQueue is empty.
+     *              3. Dynamically Iterate over the PriorityQueue, simulating visiting all nodes.
+     *
+     *
+     *
+     *
+     *
+     *  </summary>
      */
     public void runDijkstra()
     {
@@ -203,13 +242,70 @@ public class Graph
 
     }
 
+    /**
+     *  This method represents the final output after performing Dijkstra's Algorithm on a graph given a
+     *  starting node
+     *
+     *  <summary>
+     *      This method emits a table containing the final results of the algorithm. It is formatted as such:
+     *          (let X = <some Node in graph>)
+     *
+     *          X's ID | Distance to X from start | Last Node before X in shortest path to X
+     *  </summary>
+     */
     public void printOutput()
     {
         for (Node nd : nodes) {
-            System.out.println(String.format("Node %s | Distance %-2d | Last Visited %s",
+            System.out.print(String.format("Node %s | Distance %-2d | Last Visited %s | ",
                                             nd.alphaID(),
                                                          nd.distance,
                                                                         nd.lastNode.alphaID()));
+
+            getPathOfNode(nd.id);
         }
+    }
+
+    /**
+     *  BONUS METHOD
+     *
+     *  This method will actually trace the fastest path computed by Dijkstra's Algorithm.
+     *
+     *  <summary>
+     *      This method displays the fastest path from a given node back to the starting node.
+     *      This is done by tracing back through each nodes `lastNode` property until we hit the
+     *      first node. We can tell a node is the first when its `lastNode` property is THE SAME REFERENCE AS itself.
+     *
+     *      It may seem strange, but the break condition in this loop is whether two objects are equal
+     *      through the use of the `==` operator. THIS IS INTENTIONAL as we are checking their references.
+     *
+     *      <important>
+     *               To understand why the first nodes `lastNode` property is identical to the node itself, see the createNodes() method
+     *      </important>
+     *  </summary>
+     *
+     */
+    public void getPathOfNode(int index)
+    {
+        if (index >= nodes.length) { System.err.println("Invalid Node"); return; }
+
+        System.out.print("The shortest path between [Node " + nodes[index].alphaID() +
+                "] and [The Starting Node (" + nodes[start].alphaID() + ")] is [");
+
+        Node dest = nodes[index];
+        System.out.print(dest.alphaID());
+
+        while (true) {
+            if (dest == dest.lastNode) {
+                /**
+                 *  We have reached the beginning of the path where a node is its own last node. SEE createNodes().
+                 */
+                break;
+            }
+
+            dest = dest.lastNode;
+
+            System.out.print("-" + dest.alphaID());
+        }
+        System.out.println("].");
     }
 }
