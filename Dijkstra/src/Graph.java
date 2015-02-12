@@ -60,9 +60,6 @@ public class Graph
      *          1. Cache the adjacency matrix for later use.
      *          2. Allocate our Node[] so that we may populate it later.
      *          3. Give control to the createNodes() method.
-     *
-     *
-     *
      *  </summary>
      *
      * @param adjacencyMatrix The adjacency matrix from which we are building this graph.
@@ -211,10 +208,39 @@ public class Graph
      *      We must perform the body of Dijkstra's Algorithm untill the PriorityQueue is empty.
      *              3. Dynamically Iterate over the PriorityQueue, simulating visiting all nodes.
      *
+     *      The next step is to get the current element sequence, the first element in the PriorityQueue. This represents
+     *      the current node we are looking at. It is removed from the PriorityQueue (note the use of poll()).
+     *              4. Remove the current node
+     *
+     *      Once we have the current node, we need to look at all of the nodes it is connected to and determine their
+     *      total distances.
+     *              5. Iterate through all of the neighbors of the current node.
+     *
+     *      For each neighbor, we calculate the distance between that neighbor and the start node. This is accomplished
+     *      first by finding the weight between the current node and target neighbor.
+     *              6. Determine the weight between the current node and a neighbor node.
+     *
+     *      Once we have the weight to the target node, add it to the distance of the current node to find the total
+     *      path weight.
+     *              7. Calculate total path weight to a certain neighbor node.
+     *
+     *      Just because we have calculated this total path weight does not mean that we should keep it. Next we have
+     *      to compare it to the existing distance value of the node we are looking at. Assign the max of these two values
+     *      to the nodes distance. We have now calculated the (for now) shortest distance.
+     *              8. Determine whether or not a certain distance to a node is in fact the best distance we have found.
+     *
+     *      The next two steps simply update the state of the algorithm as it goes along, making sure that sucessive
+     *      generations know exactly what is going on. First we need to actually assign the distance calculated to the
+     *      distance of a certain node. This distance may not always be different that the distance discovered in previous
+     *      iterations.
+     *              9. Assign a tentative distance. This may be freshly calculated or an older distance that remains optimal.
+     *
+     *      The last step in the process is to update each node's `lastNode` property so we can trace a route back to the
+     *      starting node. See getPathOfNode() method.
+     *              10. Assign a lastNode to the current node. This is only a new node if the distance calculated was optimal.
      *
      *
-     *
-     *
+     *      And that's it, only 10 statements and we have found the best path to every node in a graph given a starting point!
      *  </summary>
      */
     public void runDijkstra()
@@ -230,8 +256,7 @@ public class Graph
             for (Node neighbor : current.neighbors)
             {
                 int weight = weight(current, neighbor);
-
-                int newDistance = current.distance + weight;
+                int newDistance =  (current.distance == Integer.MAX_VALUE ? 0 : current.distance) + weight;
 
                 if (newDistance < neighbor.distance) {
                     neighbor.distance = newDistance;
@@ -239,7 +264,6 @@ public class Graph
                 }
             }
         }
-
     }
 
     /**
@@ -266,7 +290,7 @@ public class Graph
     }
 
     /**
-     *  BONUS METHOD
+     *      ***BONUS METHOD***
      *
      *  This method will actually trace the fastest path computed by Dijkstra's Algorithm.
      *
@@ -286,6 +310,9 @@ public class Graph
      */
     public void getPathOfNode(int index)
     {
+        /**
+         *  Sanitize the input.
+         */
         if (index >= nodes.length) { System.err.println("Invalid Node"); return; }
 
         System.out.print("The shortest path between [Node " + nodes[index].alphaID() +
@@ -302,6 +329,9 @@ public class Graph
                 break;
             }
 
+            /**
+             *  Walk the path back to the starting node.
+             */
             dest = dest.lastNode;
 
             System.out.print("-" + dest.alphaID());

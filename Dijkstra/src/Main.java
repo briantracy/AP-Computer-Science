@@ -1,36 +1,26 @@
-import java.util.Arrays;
-
+/**
+ *      See Accompanying PDF file for a picture of the graph that we are testing.
+ */
 public class Main
 {
-
+    /**
+     *  The methods on the Graph object are designed to be as easily readable as possible. Note how the methods called
+     *  on a graph instance have descriptive names that are meant to be "self documenting".
+     */
     public static void main(String[] args)
     {
-        int[][] example1 = new int[][] {
+        int[][] example = new int[][] {
                 { 0, 3, 0, 15 },
                 { 0, 0, 4, 10 },
-                { 7, 0, 0, 2  },
+                { 0, 0, 0, 2  },
                 { 0, 0, 0, 0  }
         };
 
-        int[][] example2 = new int[][] {
-                { 0, 7, 10, 5 },
-                { 0, 0, 8, 11 },
-                { 0, 0, 0, 9 },
-                { 0, 11, 0, 0 },
-        };
-
-
-        runTestCase(example1, "Example 1");
-        runTestCase(example2, "Example 2");
-    }
-
-    private static void runTestCase(int[][] example, String name)
-    {
         Graph graph = new Graph(example);
         graph.setStartingNode(0);
         graph.runDijkstra();
 
-        System.out.println("Testing Example " + name);
+        /// Sample output is provided
         graph.printOutput();
     }
 }
