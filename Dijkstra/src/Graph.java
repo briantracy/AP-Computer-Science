@@ -229,7 +229,7 @@ public class Graph
      *      to the nodes distance. We have now calculated the (for now) shortest distance.
      *              8. Determine whether or not a certain distance to a node is in fact the best distance we have found.
      *
-     *      The next two steps simply update the state of the algorithm as it goes along, making sure that sucessive
+     *      The next two steps simply update the state of the algorithm as it goes along, making sure that successive
      *      generations know exactly what is going on. First we need to actually assign the distance calculated to the
      *      distance of a certain node. This distance may not always be different that the distance discovered in previous
      *      iterations.
@@ -241,26 +241,43 @@ public class Graph
      *
      *
      *      And that's it, only 10 statements and we have found the best path to every node in a graph given a starting point!
+     *
+     *      To recap, the ten labeled steps from above:
+     *               1. Declare a starting node.
+     *               2. Construct a PriorityQueue of nodes.
+     *               3. Dynamically Iterate over the PriorityQueue, simulating visiting all nodes.
+     *               4. Remove the current node.
+     *               5. Iterate through all of the neighbors of the current node.
+     *               6. Determine the weight between the current node and a neighbor node.
+     *               7. Calculate total path weight to a certain neighbor node.
+     *               8. Determine whether or not a certain distance to a node is in fact the best distance we have found.
+     *               9. Assign a tentative distance. This may be freshly calculated or an older distance that remains optimal.
+     *               10. Assign a lastNode to the current node. This is only a new node if the distance calculated was optimal.
      *  </summary>
      */
     public void runDijkstra()
     {
-        nodes[start].distance = 0;
+        nodes[start].distance = 0;                                  /// REQUIRED: A starting node.
 
-        PriorityQueue<Node> queue = new PriorityQueue<Node>(Arrays.asList(nodes));
+        PriorityQueue<Node> queue = new PriorityQueue<Node>(Arrays.asList(nodes));      /// See Node.compareTo()
 
-        while (!queue.isEmpty()) {
+        while (!queue.isEmpty()) {                                  /// Visit every node
 
-            Node current = queue.poll();
+            Node current = queue.poll();                            /// Which node are we focusing on?
 
-            for (Node neighbor : current.neighbors)
+            for (Node neighbor : current.neighbors)                 /// Scan each of its connected nodes.
             {
-                int weight = weight(current, neighbor);
-                int newDistance =  (current.distance == Integer.MAX_VALUE ? 0 : current.distance) + weight;
+                int weight = weight(current, neighbor);             /// Delegate to the adj mat, see Graph.weight()
+                int newDistance =
+                        (current.distance == Integer.MAX_VALUE ?    /// Calculate the total distance to this node.
+                                0 :
+                                current.distance
+                        )
+                                + weight;
 
-                if (newDistance < neighbor.distance) {
-                    neighbor.distance = newDistance;
-                    neighbor.lastNode = current;
+                if (newDistance < neighbor.distance) {              /// Was this new path optimal?
+                    neighbor.distance = newDistance;                /// Yes it was, make not of that
+                    neighbor.lastNode = current;                    /// Make sure we can track back to the start.
                 }
             }
         }

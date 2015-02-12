@@ -1,5 +1,5 @@
 /**
- *      See Accompanying PDF file for a picture of the graph that we are testing.
+ *      See Accompanying jpeg file for a picture of the graph that we are testing.
  */
 public class Main
 {
@@ -11,7 +11,7 @@ public class Main
     {
         int[][] example = new int[][] {
                 { 0, 3, 0, 15 },
-                { 0, 0, 4, 10 },
+                { 0, 0, 4, 10 },            /// Curious as to what this looks like? Take a gander at the jpeg.
                 { 0, 0, 0, 2  },
                 { 0, 0, 0, 0  }
         };
@@ -20,7 +20,7 @@ public class Main
         graph.setStartingNode(0);
         graph.runDijkstra();
 
-        /// Sample output is provided
+        /// Sample output is provided -- see README.txt
         graph.printOutput();
     }
 }
