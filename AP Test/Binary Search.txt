@@ -1,0 +1,30 @@
+Brian Tracy
+AP Computer Science
+Kuszmaul
+
+Binary Search
+=============
+(http://www.learnerator.com/ap-computer-science/q/886/binary-search-1)
+A student wants to create a binary search algorithm that uses an ArrayList of Strings. Which of the following is a typical precondition?
+
+	1.the Strings in the ArrayList must be composed of all uppercase or all lowercase letters
+
+	2. the Strings in the ArrayList must be composed of the same number of characters
+
+	3. the String being searched for must be contained in the ArrayList
+
+	4. the ArrayList must be sorted		<-- Answer
+
+	5. the ArrayList must be of even size
+
+
+When performing a binary search, where is the best starting point for the pivot.
+	1. Near the beginning of the data.
+	2. Near the middle	  of the data.
+	3. Near the end		  of the data.
+	4. It is irrelevant where the pivot is.
+
+Why is your chosen position the best.
+	
+	____________________________________________________________________________
+

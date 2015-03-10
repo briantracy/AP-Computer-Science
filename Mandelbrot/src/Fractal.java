@@ -161,7 +161,6 @@ public class Fractal extends JFrame
             int y = p.y;
 
             Complex c = this.complexForPoint(x,y);
-            System.out.println(c);
 
             minX /= scaleFactor;
             maxX /= scaleFactor;
@@ -189,7 +188,6 @@ public class Fractal extends JFrame
         public void resetAxisRep()
         {
             axisRep = String.format("x = [%f, %f]\ny = [%f, %f]", minX, maxX, minY, maxY);
-            System.out.println(axisRep);
         }
 
     }

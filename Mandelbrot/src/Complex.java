@@ -1,7 +1,7 @@
 /// Created by Brian Clement Tracy
 
 
-public class Complex {
+public strictfp class Complex {
 
     public double real, imaginary;
 
@@ -17,6 +17,11 @@ public class Complex {
         imaginary = y;
     }
 
+    /*
+        a + bi   *   c + di
+
+        r = (a * c) - (b * d)
+     */
     public Complex multiply(Complex other)
     {
         double real = (this.real * other.real)      - (this.imaginary * other.imaginary);

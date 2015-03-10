@@ -1,0 +1,94 @@
+Brian Tracy
+AP Computer Science
+
+APCS Multiple Choice
+
+
+Sample Questions: (https://secure-media.collegeboard.org/digitalServices/pdf/ap/ap-computer-science-a-course-description-2014.pdf)
+
+
+Sample Questions
+================
+
+1. Consider the following code segment.
+	for (int k = 0; k < 20; k = k + 2) {
+		if (k % 3 == 1) {
+			System.out.print(k + " "); 
+		}
+	}
+What is printed as a result of executing the code segment? 
+(a) 4 16
+(b) 4 10 16				(answer)
+(c) 0 6 12 18
+(d) 1 4 7 10 13 16 19
+(e) 0 2 4 6 8 10 12 14 16 18
+
+
+2. Consider the following code segment.
+	List<String> animals = new ArrayList<String>();
+	animals.add("dog"); 
+	animals.add("cat"); 
+	animals.add("snake"); 
+	animals.set(2, "lizard"); 
+	animals.add(1, "fish"); 
+	animals.remove(3); 
+	System.out.println(animals);
+
+What is printed as a result of executing the code segment?
+(a) [dog, fish, cat]			(answer)
+(b) [dog, fish, lizard]
+(c) [dog, lizard, fish]
+(d) [fish, dog, cat]
+(e) The code throws an ArrayIndexOutOfBoundsException exception.
+
+3. Consider the following declarations.
+	public interface Shape {
+		int isLargerThan(Shape other);
+		// Other methods not shown 
+	}
+	public class Circle implements Shape
+	{
+		// Other methods not shown
+	}
+
+Which of the following method headings of isLargerThan
+can be added to the declaration of the Circle class so that it will satisfy the Shape interface?
+I. public int isLargerThan(Shape other)
+II. public int isLargerThan(Circle other)
+III. public boolean isLargerThan(Object other)
+(a) I only
+(b) II only
+(c) III only
+(d) I and II only
+(e) I, II, and III			(answer)
+
+
+
+My Questions
+============
+
+1. Which of the following snippets best represents delegation.
+
+(a) void f(int x ) { this.g.f(x);       }
+(b) int  f(      ) { return 7;          }
+(c) long f(long v) { return (int)v;     }
+(d) char f(char v) { return super.f(v); }
+
+2. By Default, methods in an interface are.
+
+(a) private
+(b) protected
+(c) public
+(d) abstract
+
+3. Which choice best describes a main reason to use getters and setters as apposed to a public field.
+
+(a) Encapsulation
+(b) Standard Conventions
+(c) You might want to do more than just get and set the field.
+(d) Getters and Setters are more efficient.
+
+
+Approved / Reviewed by Naveen, Matthew, and Maya.
+
+

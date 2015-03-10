@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  *      See Accompanying jpeg file for a picture of the graph that we are testing.
  */
@@ -22,5 +24,19 @@ public class Main
 
         /// Sample output is provided -- see README.txt
         graph.printOutput();
+
+        x("Hello");
+        x(new ArrayList());
+
     }
+
+
+    public static void x(Object x) {
+        System.out.println("Object");
+    }
+
+
+    public static void x(String x) {
+        System.out.println("String");;}
 }
+
