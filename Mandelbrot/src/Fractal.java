@@ -3,7 +3,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 
 public class Fractal extends JFrame
@@ -75,15 +78,86 @@ public class Fractal extends JFrame
 
     public void paint(Graphics g)
     {
-        for (int x = 0; x < getWidth(); x += PIXEL_SIZE)
+//        for (int x = 0; x < getWidth(); x += PIXEL_SIZE)
+//        {
+//            for (int y = 0; y < getHeight(); y += PIXEL_SIZE)
+//            {
+//                int iters = this.window.complexForPoint(x,y).escapeIters();
+//                g.setColor(colorForEscapeIters(iters));
+//                g.fillRect(x, y, PIXEL_SIZE, PIXEL_SIZE);
+//            }
+//        }
+
+        ExecutorService serv = Executors.newFixedThreadPool(4);
+
+
+        Thread t1, t2, t3, t4;
+        Quadrant q1, q2, q3, q4;
+
+        int halfX = getWidth() / 2;
+        int halfY = getHeight() / 2;
+
+        q1 = new Quadrant(new Point(0, 0), new Point(halfX, halfY), this.window);
+        q2 = new Quadrant(new Point(halfX, 0), new Point(getWidth(), halfY), this.window);
+        q3 = new Quadrant(new Point(0, halfY), new Point(halfX, getHeight()), this.window);
+        q4 = new Quadrant(new Point(halfX, halfY), new Point(getWidth(), getHeight()), this.window);
+
+        t1 = new Thread(q1);
+        t2 = new Thread(q2);
+        t3 = new Thread(q3);
+        t4 = new Thread(q4);
+
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+
+
+        try {
+            t1.join();
+            t2.join();
+            t3.join();
+            t4.join();
+        } catch (Exception idgafos){}
+
+        for (int x = 0; x < halfX; x++)
         {
-            for (int y = 0; y < getHeight(); y += PIXEL_SIZE)
+            for (int y = 0; y < halfY; y++)
             {
-                int iters = this.window.complexForPoint(x,y).escapeIters();
-                g.setColor(colorForEscapeIters(iters));
+                g.setColor(colorForEscapeIters(q1.data[x][y]));
                 g.fillRect(x, y, PIXEL_SIZE, PIXEL_SIZE);
             }
         }
+        for (int x = halfX; x < getWidth(); x++)
+        {
+            for (int y = 0; y < halfY; y++)
+            {
+                try {
+                    g.setColor(colorForEscapeIters(q2.data[x - halfX][y]));
+                    g.fillRect(x, y, PIXEL_SIZE, PIXEL_SIZE);
+                } catch (ArrayIndexOutOfBoundsException e)
+                {
+                    System.out.println("EXCEPTION " + x + "    " + y);
+                }
+            }
+        }
+        for (int x = 0; x < halfX; x++)
+        {
+            for (int y = halfY; y < getHeight(); y++)
+            {
+                g.setColor(colorForEscapeIters(q3.data[x][y - halfY]));
+                g.fillRect(x, y, PIXEL_SIZE, PIXEL_SIZE);
+            }
+        }
+        for (int x = halfX; x < getWidth(); x++)
+        {
+            for (int y = halfY; y < getHeight(); y++)
+            {
+                g.setColor(colorForEscapeIters(q4.data[x - halfX][y - halfY]));
+                g.fillRect(x, y, PIXEL_SIZE, PIXEL_SIZE);
+            }
+        }
+
 
         drawAxisRep(g);
 
@@ -129,7 +203,7 @@ public class Fractal extends JFrame
 
 
 
-    private class Window {
+    public class Window {
 
 
         double minX, maxX, minY, maxY;
